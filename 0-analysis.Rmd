@@ -1,0 +1,214 @@
+---
+title: "Sinusoidal Analysis"
+author: "Baidurya Bhattacharyya"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r preloading, include=FALSE}
+source('0-libraries.R')
+source('1-sinudist.R')
+source('2.0-losses.R')
+source('2.1-fit.fg.loss.R')
+source('2.9-curve.fg.R')
+```
+
+## Properties
+
+### Parameters' Effect on Shape of Density
+```{r cache=T}
+curve(dsinu(x, 0,1,1,1), col='black', xlim=c(0,2), ylim=c(0,2), ylab='Density')
+curve(dsinu(x, 1,1,1,1), col='brown', add=T)
+curve(dsinu(x, 0,2,1,1), col='blue', add=T)
+curve(dsinu(x, 0,1,0.5,1), col='orange', add=T)
+curve(dsinu(x, 0,1,2,1), col='red', add=T)
+curve(dsinu(x, 0,1,1,2), col='green', add=T)
+legend('topright', legend=c('Sinu(0,1)','Sinu(1,1)','Sinu(0,2)','Sinu(0,1,0.5,1)','Sinu(0,1,2,1)','Sinu(0,1,1,2)'), lwd=2, col=c('black','brown','blue','orange','red','green'))
+```
+
+### Skewness-Kurtosis Parameters s, k
+
+#### Effect on Shape of Density
+```{r}
+par(mfcol=c(6,6), cex=0.8, cex.axis=0.5)
+
+omega.vec = c(0.2, 0.6, 1,2,3,4)
+chi.vec = c(4,3,2,1, 0.6, 0.2)
+
+for (omega.val in omega.vec) {
+  for (chi.val in chi.vec) {
+    par(mar=c(0,0,1,0))
+    mainlab = paste(omega.val,chi.val, sep=', ')
+    curve(dsinu(x, 0,1, omega.val, chi.val), ylim=c(0,6), xaxt='n', yaxt='n', main= mainlab)
+  }
+}
+```
+
+
+
+#### s, k jointly affect both Skewness and Kurtosis
+```{r}
+sinu.kurt.sk = Vectorize(function(s, k) sinu.kurt(s=s, k=k), vectorize.args=c('k','s'))
+sinu.skew.sk = Vectorize(function(s, k) sinu.skew(s=s, k=k), vectorize.args=c('k','s'))
+```
+
+**Skewness vs s over k-blocks**
+```{r, cache=T}
+k.vec=c(1:4/4, 1:20/2)
+n=length(k.vec)
+curve(0*x, xlim=c(0,10), ylim=c(-1.3,2.5), xlab=expression(s), ylab='skewness')
+i=0
+for (k in k.vec){
+  i=i+1
+  curve(sinu.skew.sk(k=k, s=x), col=rgb((n-i)/n, i/n, 0), add=T)
+}
+i.vec=1:n
+legend('topright', legend=paste0(s.vec), fill=rgb((n-i.vec)/n, i.vec/n, 0), title=expression(k))
+```
+
+
+**Kurtosis vs k over s-blocks**
+```{r, cache=T}
+s.vec=c(1:4/4, 1:20/2)
+n=length(s.vec)
+par(mar = c(4,4,0,0))
+
+curve(0*x, xlim=c(0,20), ylim=c(-1.3,1.9), xlab=expression(k), ylab='kurtosis')
+i=0
+for (s in s.vec){
+  i=i+1
+  curve(sinu.kurt.sk(s=s, k=x), col=rgb((n-i)/n, i/n, 0), add=T)
+}
+i.vec=1:n
+legend('topright', legend=paste0(s.vec), fill=rgb((n-i.vec)/n, i.vec/n, 0), title='s')
+```
+
+#### Skewness-Kurtosis Coverage by varying s, k
+```{r coverage, eval=FALSE, include=FALSE, cache=T}
+# --- 0. Set Batch Size ---
+batch_size <- 500
+
+# --- 1. Data Preparation ---
+s.vec <- seq(0,4,by=0.01)
+k.vec <- seq(0,6,by=0.01)
+s.unique <- unique(s.vec)
+k.unique <- unique(k.vec)
+n_s <- length(s.unique)
+n_k <- length(k.unique)
+
+param.grid <- expand.grid(s = s.unique, k = k.unique)
+
+n_rows <- nrow(param.grid)
+n_batches <- ceiling(n_rows / batch_size)
+
+# --- 2. Set up Plot Layout ---
+layout(matrix(c(1, 2), 1, 2), widths=c(4, 1))
+
+# --- 3. Create the Main Plot (Empty) ---
+par(mar=c(4, 2, 0.5, 0.1)) # Remove right margin
+par(cex=0.7)
+
+plot(NULL,
+     xlim = c(-1, 2), 
+     ylim = c(-1, 4),
+     xlab = "skew",
+     ylab = "kurt"
+)
+abline(h=0, v=0, lwd=2)
+
+# --- 4. Loop, Calculate, and Plot in Batches ---
+for (i in 1:n_batches) {
+  start_index <- (i - 1) * batch_size + 1
+  end_index <- min(i * batch_size, n_rows)
+  
+  batch_data <- param.grid[start_index:end_index, ]
+  
+  batch_skew <- mapply(sinu.skew, s=batch_data$s, k=batch_data$k, 
+                       MoreArgs=list(a=0, d=1, flip=FALSE, cache=TRUE))
+  
+  batch_kurt <- mapply(sinu.kurt, s=batch_data$s, k=batch_data$k,
+                       MoreArgs=list(a=0, d=1, flip=FALSE, cache=TRUE))
+  
+  # Calculate colors: Red for s, Green for k
+  s_norm <- (batch_data$s - min(s.unique)) / (max(s.unique) - min(s.unique))
+  k_norm <- (batch_data$k - min(k.unique)) / (max(k.unique) - min(k.unique))
+  batch_color <- rgb(s_norm, k_norm, 0)
+  
+  points(batch_skew, batch_kurt, col = batch_color, pch = 15, cex = 0.8)
+  
+  # Sys.sleep(0.1)
+}
+
+# --- 5. Create the 2D Legend Plot (Once at the end) ---
+par(mar=c(5, 0.1, 4, 3)) # Remove left margin
+z.index.matrix <- matrix(1:(n_s * n_k), nrow=n_s, ncol=n_k)
+
+# Color vector: Red for s, Green for k
+color.vector <- rgb(
+  (rep(s.unique, n_k) - min(s.unique)) / (max(s.unique) - min(s.unique)),
+  (rep(k.unique, each=n_s) - min(k.unique)) / (max(k.unique) - min(k.unique)),
+  0
+)
+
+image(s.unique, k.unique, z.index.matrix,
+      col = color.vector,
+      xlab = "s",
+      ylab = "k",
+      yaxt = "n")
+axis(4)
+
+# Reset layout
+par(mfrow=c(1,1), mar=c(5, 4, 4, 2) + 0.1, cex=1.0)
+```
+
+
+## Fitting
+
+### PDF on PDF
+
+#### Helinger
+
+Fitting $N(0,1)$
+```{r}
+fit1 = fit.fg.Hel(f_family=family_sinu, g=function(x) dnorm(x))
+curve.fg(function(x) f_sinu(x, pars=fit1$par), dnorm, xlim=c(-3,3))
+```
+
+Fitting LSBeta on $N(0,1)$.
+```{r}
+fit2 = fit.fg.Hel(family_lsbeta, dnorm)
+fit2
+curve.fg(function(x) f_lsbeta(x, fit2$par), dnorm, xlim=c(-3,3))
+```
+
+Fitting Sinu on $Exp(1)$
+```{r}
+fit3 = fit.fg.Hel(family_sinu, dexp, support_g=c(0,Inf))
+fit3
+curve.fg(function(x) f_sinu(x, fit3$par), dexp, xlim=c(0,10))
+```
+
+Fitting Beta on $Exp(1)$
+```{r}
+fit4 = fit.fg.Hel(family_lsbeta, dexp, support_g=c(0,Inf))
+fit4
+curve.fg(function(x) f_lsbeta(x, fit4$par), dexp, xlim=c(0, 10))
+```
+
+```{r}
+fit.fg.Hel()
+```
+
+
+### MSM on MSM
+
+### CDF on ECDF (Data)
+```{r}
+
+```
+
+
