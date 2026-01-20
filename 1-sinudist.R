@@ -1,50 +1,55 @@
+
 source('0-libraries.R')
 
-sinucurve <- function(z, s, k) {
+sinucurve = function(z, s, k) {
   #' Sinusoidal Curve
   #' Basis for the Sinusoidal Distribution
-  z <- as.numeric(z)
-  out <- numeric(length(z))
-  valid <- (z > 0 & z < 1)
+  z = as.numeric(z)
+  out = numeric(length(z))
+  valid = (z > 0 & z < 1)
   if (any(valid)) {
-    z_subset <- z[valid]
-    out[valid] <- (sin(pi * z_subset^s))^k
+    z_subset = z[valid]
+    out[valid] = (sin(pi * z_subset^s))^k
   }
   out
 }
 
-.sinuarea_cache <- new.env(parent=emptyenv())
-sinuarea <- function(s, k) {
-  key <- paste(s, k, sep="_")
+.sinuarea_cache = new.env(parent=emptyenv())
+sinuarea = function(s, k, cache=T) {
+  key = paste(s, k, sep="_")
   if (exists(key, envir=.sinuarea_cache)) {
     return(.sinuarea_cache[[key]])
   }
-  val <- integrate(function(z) (sin(pi * z^s))^k,
+  if (s==1) {  # see research document
+    val = 2^k/pi * beta((k+1)/2, (k+1)/2)
+  } else {
+    val = integrate(function(z) (sin(pi * z^s))^k,
                    lower=0, upper=1)$value
-  .sinuarea_cache[[key]] <- val
+    if (cache) .sinuarea_cache[[key]] = val
+  }
   return(val)
 }
 
-dsinustd <- function(z, s, k, flip=FALSE) {
+dsinustd = function(z, s, k, flip=FALSE) {
   #' Sinusoidal PDF
   #' Density of the Sinusoidal Distribution
-  norm_const <- sinuarea(s, k)
+  norm_const = sinuarea(s, k)
   if (norm_const == 0) return(numeric(length(z)))
-  out <- numeric(length(z))
-  valid <- (z > 0 & z < 1)
+  out = numeric(length(z))
+  valid = (z > 0 & z < 1)
   if (!any(valid)) return(out)
-  z_subset <- z[valid]
+  z_subset = z[valid]
   if (flip) {
-    z.f_subset <- 1 - z_subset
+    z.f_subset = 1 - z_subset
   } else {
-    z.f_subset <- z_subset
+    z.f_subset = z_subset
   }
-  out[valid] <- (sin(pi * z.f_subset^s))^k / norm_const
+  out[valid] = (sin(pi * z.f_subset^s))^k / norm_const
   return(out)
 }
 
-.psinustd_cache <- new.env(parent=emptyenv())
-psinustd <- function(z, s, k, flip=FALSE, cache=FALSE) {
+.psinustd_cache = new.env(parent=emptyenv())
+psinustd = function(z, s, k, flip=FALSE, cache=FALSE) {
   #' Sinusoidal CDF
   vapply(z, FUN.VALUE=numeric(1), FUN=function(z_val) {
     if (flip) {
@@ -53,22 +58,22 @@ psinustd <- function(z, s, k, flip=FALSE, cache=FALSE) {
     if (z_val <= 0) return(0)
     if (z_val >= 1) return(1)
     if (cache) {
-      key <- paste(s, k, z_val, sep="_")
+      key = paste(s, k, z_val, sep="_")
       if (exists(key, envir=.psinustd_cache)) {
         return(.psinustd_cache[[key]])
       }
     }
-    integral_result <- integrate(dsinustd, 0, z_val, 
+    integral_result = integrate(dsinustd, 0, z_val, 
                                  s=s, k=k, flip=FALSE)$value
     if (cache) {
-      .psinustd_cache[[key]] <- integral_result
+      .psinustd_cache[[key]] = integral_result
     }
     return(integral_result)
   })
 }
 
-.qsinustd_cache <- new.env(parent=emptyenv())
-qsinustd <- function(p, s, k, flip=FALSE, cache=FALSE) {
+.qsinustd_cache = new.env(parent=emptyenv())
+qsinustd = function(p, s, k, flip=FALSE, cache=FALSE) {
   #' Sinusoidal Quantile
   vapply(p, FUN.VALUE=numeric(1), FUN=function(p_val) {
     if (flip) {
@@ -80,28 +85,28 @@ qsinustd <- function(p, s, k, flip=FALSE, cache=FALSE) {
     if (p_val == 1) return(1)
     
     if (cache) {
-      key <- paste(s, k, p_val, sep="_")
+      key = paste(s, k, p_val, sep="_")
       if (exists(key, envir=.qsinustd_cache)) {
         return(.qsinustd_cache[[key]])
       }
     }
-    objective_f <- function(z) {
+    objective_f = function(z) {
       psinustd(z, s=s, k=k, flip=FALSE, cache=cache) - p_val
     }
     
-    root_result <- tryCatch({
+    root_result = tryCatch({
       stats::uniroot(objective_f, interval=c(0, 1))$root
     }, error=function(e) { NA })
     
     if (cache) {
-      .qsinustd_cache[[key]] <- root_result
+      .qsinustd_cache[[key]] = root_result
     }
     return(root_result)
   })
 }
 
 
-rsinustd <- function(n, s,k,flip=FALSE) {
+rsinustd = function(n, s,k,flip=FALSE) {
   #' Sinusoidal Random Samples
   qsinustd(runif(n), s, k, flip)
 }
@@ -123,91 +128,76 @@ qsinu = function(p, a,d,s,k,flip=F) {
   return(qf)
 }
 
-rsinu <- function(n, a,d,s,k, flip =FALSE) {
+rsinu = function(n, a,d,s,k, flip=F) {
   a + d*rsinustd(n, s, k, flip)
 }
 
 
-sinu.rmom <- function(r, a,d,s,k, flip = FALSE) {
-  rmom.integrand <- function(z) {
-    (a+d*z)^r * dsinustd(z, s,k,flip)
-  }
-  rmomVal <- integrate(rmom.integrand, lower=0, upper=1)$value
+sinu.rmom = function(r, a,d,s,k, flip = FALSE) {
+  rmom.integrand = function(z) (a+d*z)^r * dsinustd(z, s,k,flip)
+  rmomVal = integrate(rmom.integrand, lower=0, upper=1)$value
   return(rmomVal)
 }
 
-.sinu.cmom_cache <- new.env(parent=emptyenv())
-sinu.cmom <- function(r, a,d,s,k, flip = FALSE, cache=FALSE) {
-  if (s == 0 || k == 0 || s == 1) {
-    if (r %% 2 != 0) {
-      return(0)
-    }
-    flip <- FALSE
-  }
-  
-  original_flip <- flip
-  key <- paste(r, s, k, sep="_")
-  
-  if (cache && exists(key, envir=.sinu.cmom_cache)) {
-    unscaledCmom <- .sinu.cmom_cache[[key]]
-  } else {
-    stdMean <- sinu.mean(0,1,s,k, flip=FALSE)
-    integrand <- function(z) {
-      (z-stdMean)^r * dsinustd(z, s,k,flip=FALSE)
-    }
-    unscaledCmom <- integrate(integrand, lower=0, upper=1)$value
-    
-    if (cache) {
-      .sinu.cmom_cache[[key]] <- unscaledCmom
-    }
-  }
-  
-  scaledCmom <- d^r * unscaledCmom
-  
-  if (original_flip && (r %% 2 != 0)) {
-    return(-scaledCmom)
-  } else {
-    return(scaledCmom)
-  }
-}
-
-sinu.mean <- function(a,d,s,k, flip=FALSE) {
+sinu.mean = function(a,d,s,k, flip=FALSE) {
   if (s == 1 || k == 0 || s == 0) {
     return(a + d / 2)
   }
-  a + d * sinu.rmom(1, 0, 1, s=s, k=k, flip=flip)
+  return(a + d * sinu.rmom(1, 0, 1, s=s, k=k, flip=flip))
 }
 
-sinu.var <- function(a,d,s,k, flip = FALSE) {  # a unused. Mentioned for syntax consistency only.
-  sinu.cmom(2, 0, d, s, k, flip)
+.sinu.cmom_cache = new.env(parent=emptyenv())
+sinu.cmom = function(r, d,s,k, flip = FALSE, cache=FALSE) {
+  if (s == 0 || k == 0 || s == 1) {
+    if (r %% 2 != 0) return(0)
+    flip = FALSE
+  }
+  key = paste(r, s, k, sep="_")
+  if (cache && exists(key, envir=.sinu.cmom_cache)) {
+    unscaledCmom = .sinu.cmom_cache[[key]]
+  } else {
+    stdMean = sinu.mean(0,1,s,k)
+    integrand = function(z) (z-stdMean)^r * dsinustd(z, s,k)
+    unscaledCmom = integrate(integrand, lower=0, upper=1)$value
+    if (cache) .sinu.cmom_cache[[key]] = unscaledCmom
+  }
+  scaledCmom = d^r * unscaledCmom
+  if (flip && (r %% 2 != 0)) return(-scaledCmom)
+  return(scaledCmom)
 }
 
-sinu.skew <- function(a,d,s,k, flip = FALSE, cache=FALSE) {
+
+
+sinu.var = function(d,s,k) {
+  sinu.cmom(2, d, s, k)
+}
+
+sinu.skew = function(s,k, flip = FALSE, cache=FALSE) {
   if (s == 0 || k == 0 || s == 1) {
     return(0)
   }
-  cmom2 <- sinu.cmom(2, 0,1,s,k, flip, cache=cache)
-  cmom3 <- sinu.cmom(3, 0,1,s,k, flip, cache=cache)
+  cmom2 = sinu.cmom(2, 1,s,k, flip, cache=cache)
+  cmom3 = sinu.cmom(3, 1,s,k, flip, cache=cache)
   return(cmom3 / cmom2^(3/2))
 }
 
-sinu.kurt <- function(a,d,s,k, flip = FALSE, cache=FALSE) {
-  cmom2 <- sinu.cmom(2, 0,1,s,k, flip, cache=cache)
-  cmom4 <- sinu.cmom(4, 0,1,s,k, flip, cache=cache)
+sinu.kurt = function(s,k, cache=FALSE) {
+  cmom2 = sinu.cmom(2, 1,s,k, cache=cache)
+  cmom4 = sinu.cmom(4, 1,s,k, cache=cache)
   return((cmom4 / cmom2^2) - 3)
 }
 
-sinu.msm <- function(a,d,s,k, flip = FALSE) {
-  measures <- c(
+sinu.msm = function(a,d,s,k, flip = FALSE) {
+  measures = c(
     sinu.mean(a, d, s, k, flip),
-    sinu.var(a, d, s, k, flip),
-    sinu.skew(a, d, s, k, flip),
-    sinu.kurt(a, d, s, k, flip)
+    sinu.var(d, s, k, flip),
+    sinu.skew(s, k, flip),
+    sinu.kurt(s, k, flip)
   )
   return(measures)
 }
 
-pmfsinu <- function(x, a,d,s,k, flip=FALSE) {  # useless function unless we give binning a serious thought
+pmfsinu = function(x, a,d,s,k, flip=FALSE) {  # useless function unless we give binning a serious thought
   int.vec = seq.int(floor(a+1), d) # extract integers
   int.vec
   cdf.vec = c(0, psinu(int.vec, a, d, s, k, flip))
@@ -218,17 +208,17 @@ pmfsinu <- function(x, a,d,s,k, flip=FALSE) {  # useless function unless we give
 myenvir = .psinustd_cache
 rm(list=ls(envir=myenvir), envir=myenvir)
 
-save_sinu_caches <- function(cache_names, directory = ".") {
+save_sinu_caches = function(cache_names, directory = ".") {
   if (!dir.exists(directory)) {
     dir.create(directory, recursive = TRUE)
   }
   
   for (cache_name in cache_names) {
-    file_name <- sub("^\\.", "", cache_name)
-    file_path <- file.path(directory, paste0(file_name, ".RData"))
+    file_name = sub("^\\.", "", cache_name)
+    file_path = file.path(directory, paste0(file_name, ".RData"))
     
     if (exists(cache_name, envir = .GlobalEnv)) {
-      env_obj <- get(cache_name, envir = .GlobalEnv)
+      env_obj = get(cache_name, envir = .GlobalEnv)
       save(list = ls(envir = env_obj), file = file_path, envir = env_obj)
     } else {
       warning(paste("Cache environment not found:", cache_name))
@@ -237,10 +227,10 @@ save_sinu_caches <- function(cache_names, directory = ".") {
   message(paste("Sinu caches saved to:", directory))
 }
 
-load_sinu_caches <- function(cache_names, directory = ".") {
+load_sinu_caches = function(cache_names, directory = ".") {
   for (cache_name in cache_names) {
-    file_name <- sub("^\\.", "", cache_name)
-    file_path <- file.path(directory, paste0(file_name, ".RData"))
+    file_name = sub("^\\.", "", cache_name)
+    file_path = file.path(directory, paste0(file_name, ".RData"))
     
     if (exists(cache_name, envir = .GlobalEnv)) {
       if (file.exists(file_path)) {

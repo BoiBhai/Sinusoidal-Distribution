@@ -89,7 +89,7 @@ Breg_loss = function(f, g, support=c(-Inf, Inf)){
 
 #' MSM-MSM Losses
 
-msm_L2_loss = function(f_mom, g_mom) {
+L2_msm_loss = function(f_mom, g_mom) {
   sum((f_mom-g_mom)^2)
 }
 
@@ -110,14 +110,3 @@ Kol_dist = function(F, G, support=c(-Inf, Inf)){
 
 #' CDF-ECDF Losses
 
-L2_FGn_dist = function(F, Gn, knots=knots(Gn)){  # specify knots manually to prevent recalculation each time
-  FminusGn2 = function(x) (F(x) - Gn(x))^2
-  dist = sum(sapply(knots, FminusGn2))
-  return(dist)
-}
-
-KS_dist = function(F, Gn, knots=knots(Gn)){
-  absFminusGn = function(x) abs(F(x) - Gn(x))
-  dist = max(sapply(knots, absFminusGn))
-  return(dist)
-}

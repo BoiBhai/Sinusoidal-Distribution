@@ -88,6 +88,12 @@ legend('topright', legend=paste0(s.vec), fill=rgb((n-i.vec)/n, i.vec/n, 0), titl
 ```
 
 #### Skewness-Kurtosis Coverage by varying s, k
+Cache sink for (skew, kurt) based on (s,k)
+```{r}
+
+```
+
+
 ```{r coverage, eval=FALSE, include=FALSE, cache=T}
 # --- 0. Set Batch Size ---
 batch_size <- 500
