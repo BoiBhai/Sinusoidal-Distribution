@@ -1,5 +1,5 @@
 
-source('0-libraries.R')
+#source('0-libraries.R')
 
 sinucurve = function(z, s, k) {
   #' Sinusoidal Curve
