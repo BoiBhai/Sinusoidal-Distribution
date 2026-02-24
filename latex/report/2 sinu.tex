@@ -1,0 +1,415 @@
+\newcommand{\mat}[1]{\mathbf #1}
+%\newcommand{\Fhyp}{\mathrm F}
+%\newcommand{\d}{\mathrm d}
+%\newcommand{\e}{\mathrm e}
+
+\section{The Sinusoidal Distribution}
+
+\subsection{Definition}
+\subsubsection*{Standard Family}
+Notated \[ Z \sim \Sinu(s,k) \quad Z\in [0,1], s \ge 0, k \ge 0 \]
+Kernel \[ \varsigma(z; s,k) = \sin^k(\pi z^s) \]
+Normalizing constant \[A(s,k) = \int_0^1 \sin^k(\pi t^s) \d t\]
+Standard PDF \[\psi(z; s,k) \equiv \frac{\varsigma(z; s,k)}{A(s,k)} = \frac{1}{A(s,k)} \sin^k(\pi z^s)\]
+Standard CDF \[\Psi(z; s,k) = \int_0^z \psi(t; s,k) \d t \equiv \frac{A_z(s,k)}{A(s,k)}\]
+Explicit forms of the CDF will be derived in later sections.
+
+\subsubsection*{Location Scale Extension}
+Notated $X \sim \Sinu(a,d,s,k) \quad X \in [a, a+d], a \in \RR, d \ge 0, s \ge 0, k\ge 0$, $X$ has density:
+\[\psi(x; a,d,s,k) = {\frac 1 d} \psi \left( \frac{x-a}{d}; s,k \right) \]
+
+\subsubsection*{Flipped Extension}
+Notated $X' \sim \Sinu'(a,d,s,k)$, it is defined as $X' :\overset{d}{=} a+d - X$ where $X \sim \Sinu(a,d,s,k)$. Conceivably, it has density \[\psi'(x; a,d,s,k) = {\frac 1 d} \psi \left( \frac{a+d-x}{d}; s,k \right) \]
+
+\subsubsection*{Multivariate Extension}
+We provide multivariate extension notions of only the standard \sindist{}, i.e. location scale extensions of the multivariate extensions is left implicit.
+
+A: Defined independently using individual (s,k)'s: $\vec Z_{m \times 1} \sim \psi_m( \vec s_{m \times 1}, \vec k_{m \times 1})$:
+\[\psi_m (\vec z; \vec s, \vec k) = \prod_{j=1}^m \psi(z_j; s_j,k_j)\]
+This makes it equivalent to the joint density of $m$ independent Standard Sinusoidal random variables.
+
+B: Defined through a common $(s,k)$ pair via vector generalization
+\[ \psi_m (\vec z; \mat D, s, k) = \psi ( \vec z^\intercal \mat D^{-1} \vec z ; s, k) \]
+Unsure of the structure of D, what kind of correlation structure D will provide, whether the defined density will be normalized, how s and k will influence its shape here, etc.
+
+C: Defined through the Archimedean copula.
+
+\subsection{Shape Properties}
+Plots of the PDF, CDF, Hazard function and DQF (Density-Quantile Function, as described in \cite{staudte2017dqf}) of some standard \sindist s are given in \autoref{fig:shapeplots}.
+%\begin{landscape}
+   \begin{figure}
+        \begin{subfigure}{0.49\linewidth}
+            \includegraphics[width=\linewidth]{fig/2-pdf}
+            \caption{PDFs}
+        \end{subfigure}
+        \begin{subfigure}{0.49\linewidth}
+            \includegraphics[width=\linewidth]{fig/2-cdf}
+            \caption{CDFs}
+        \end{subfigure}
+        \begin{subfigure}{0.49\linewidth}
+            \includegraphics[width=\linewidth]{fig/2-hf}
+            \caption{Hazard Functions}
+        \end{subfigure}
+        \begin{subfigure}{0.49\linewidth}
+            \includegraphics[width=\linewidth]{fig/2-dqf}
+            \caption{DQFs}
+        \end{subfigure}
+        \caption{Shape plots of different \sindist s}\label{fig:shapeplots}
+    \end{figure}
+%\end{landscape}
+
+We now describe some shape properties of the $\Sinu(a,d,s,k)$ distribution:
+\begin{enumerate}
+    \item Support: $[a, a+d]$. $a$ is the location and $d$ is the scale parameter. Alternative parametrization with $b=a+d$ may be considered.
+    \item $s$ affects skewness of the \sindist{} as follows:
+    \begin{enumerate}
+        \item $0 \le s <1$: left-leaning (positively/right skewed)
+        \item $s=1$: symmetric
+        \item $s>1$: right-leaning (negatively/left skewed)
+    \end{enumerate}.
+    The alternative parametrization $s' = \ln s$ calibrates the parameter choice $s=0$ to the symmetric family, and on either side of it keeps oppositely signed skewness families.
+    \item The choice $a=-\frac d 2$, $s=1$ gives the special $\Sinu(-\frac d 2, d, 1, k)$ family, which is symmetric around 0 and supported on the interval $[-\frac d 2, \frac d 2]$.
+    \item $s$ (or any transformation of it) does not affect the shape of the distribution symmetrically around the point $s=1$; i.e. $\nexists s'{<1}: \Sinu(s', k) \overset{d}{=} 1-\Sinu(s,k) \quad \forall s{>}1$. It is for this reason that we introduced the notion of a flipped \sindist{}.
+    \item $k$ affects kurtosis non-monotonically.
+    \item $s, k$ jointly affect both the skewness and the kurtosis. See \autoref{fig:skassoc} for reference.
+   \begin{figure}
+        \begin{subfigure}{0.48\linewidth}
+            \includegraphics[width=\linewidth]{fig/2-skewvss}
+            \caption{Skewness vs. $s$}
+        \end{subfigure}
+        \begin{subfigure}{0.48\linewidth}
+            \includegraphics[width=\linewidth]{fig/2-kurtvsk}
+            \caption{Kurtosis vs. $k$}
+        \end{subfigure}
+        \caption{$s$, $k$ jointly affect skewness \& kurtosis}\label{fig:skassoc}
+    \end{figure}
+    \item Produces a Uniform density when k=0 or s=0
+    \item Degenerate at $a$ for $d=0$ (what about $k=\infty$?)
+    \item $\Sinu(-d/2, d, 1, k(d)) \xrightarrow{d \to \infty} \N(0,1)$ where $k(d)$ is a certain monotonically increasing function of $d$ (yet to be proven).
+    \item \begin{thm}
+        Mode of $\Sinu (s,k)$ is $2^{-1/s}$ and the modal density is $\frac{1}{A(s,k)}$.
+        \end{thm}
+        \begin{proof}
+            \begin{align*}
+                \frac{\d}{\d z} \psi(z; s,k) &= \frac{1}{A(s,k)} \frac{\d}{\d z} \sin^k(\pi z^s)\\
+                &= \frac{1}{A(s,k)} k \sin^{k-1}(\pi z^s) \cos(\pi z^s) \pi s z^{s-1}\\
+                &= 0 \iff \begin{cases}
+                    \sin(\pi z^s) =0 \implies z=0,1\\
+                    z^{s-1} = 0 \implies z=0\\
+                    \cos(\pi z^s) = 0 \implies \pi z^s = \frac{\pi}{2} \implies z = 2^{-1/s}
+                \end{cases}
+            \end{align*}
+            And modal density is \[\psi(2^{-1/s}; s,k) = \frac{1}{A(s,k)} \sin^k(\pi z^s)\bigg|_{z=2^{-1/s}} = \frac{1}{A(s,k)}\]\end{proof}
+    \end{enumerate}
+
+
+
+
+\section{Preliminary Mathematical Properties}
+\subsection*{Programmatic Notation}
+We follow these conventions of nomenclature, in both the report and the code as far as possible, to quickly understand the domain of variables, and, in some ways, also their interpretation.
+\begin{enumerate}
+    \item $x \in [a, a+d]$
+    \item $z :\equiv\frac{x-a}{d} \in [0,1]$
+    \item $u :\equiv z^s\in [0,1]$ also.
+    \item $\theta :\equiv \pi u \equiv \pi z^s \in [0,\pi]$
+    \item $\omega := \theta - \frac{\pi}{2} \equiv \pi z^s - \frac{\pi}{2} \in [-\frac{\pi}{2}, \frac{\pi}{2}]$
+    \item $r = \pm 1$
+\end{enumerate}
+
+\subsection{Interpretation}
+We provide a physical interpretation of the \sindist{}; this will be similar to \cite{gilbert1893moon}, which imagines a circular planet of (constant) radius $r$ in the 2-dimensional plane, and all crater activity happening \emph{vertically} (parallel to Y-axis) onto the planet. Any location $(r,\theta)$ on the circumference of the planet that subtends an angle $\theta$ at the center, but more importantly also against any \emph{vertical}, receives an intensity (interpreted as proportional to the probability density) of crater activity proportional to $\sin\theta$.
+
+We will show that the \sindist{} $\Sinu(s,k)$ also corresponds to the intensity of crater activity on some non-circular planetary surface, by deriving the functional form of the radial curve $r(z)$ (parametrized by $z$ such that $\theta=\pi z^s$ is the angle every location $r(z)$ on the planet subtends at the origin) which experiences crater activity proportional to $\sin^k(\pi z^s)$ at every $r(z)$.
+
+First, note that both the radius of a planet and the angle subtended at its center are actually immaterial with regard to the intensity of crater activity it experiences when we assume that there is no decay in the intensity of crater activity through space, or atleast in the region of space incident normally upon the planet starting from its north-pole to its equator. In fact, what only matters is the tangential inclination of any location on the planet. To summarise, a location $r(z)$ parametrized as above will experience activity intensity proportional to $\sin(\phi)$, where $\phi$ is the angle its tangent subtends against the vertical.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{fig/2-planet}
+    \caption{An interpretation of the \sindist}
+    \label{fig:planet}
+\end{figure}
+
+Now, consider a planet whose every location $r(z)$ is inclined at an angle $\phi = \sin^{-1} [\sin^k(\pi z^s)]$ against the vertical. it is immediate that the activity intensity there would be $\sin^k(\pi z^s)$.
+
+The characterization of the shape of such a (smooth) radial curve that defines the planet is a problem in differential geometry. We briefly formulate its solution:
+\begin{gather*}
+    x(0) = r_0; \, y(0)=0\\
+    \phi(z) = \sin^{-1} [\sin^k(\pi z^s)]\\
+    \frac{\d y}{\d x} = \tan\left(\frac{\pi}{2}+\phi\right) \equiv - \cot \phi
+\end{gather*}
+\begin{gather*}
+    x = r(z) \cos (\pi z^s) \quad \implies \d x = \cos (\pi z^s) \d r - r \sin(\pi z^s) \pi s z^{s-1} \d z\\
+    y = r(z) \sin (\pi z^s) \quad \implies \d y = \sin(\pi z^s) \d r + r \cos(\pi z^s) \pi s z^{s-1} \d z
+\end{gather*}
+
+\begin{align*}
+    &\frac{\sin(\pi z^s) \d r + r \cos(\pi z^s) \pi s z^{s-1} \d z}{\cos (\pi z^s) \d r - r \sin(\pi z^s) \pi s z^{s-1} \d z} &&= - \cot \left[ \sin^{-1} \sin^k(\pi z^s) \right] \\
+    \implies& \frac{\d r}{r} &&= \tan\left[ \pi z^s - \sin^{-1}\sin^k(\pi z^s) \right] \cdot \pi s z^{s-1} \d z\\
+    & &&= \tan ( \theta - \sin^{-1}\sin^k \theta ) \d \theta\\
+    \implies& \ln r \big|_{r_0}^{r(z)} &&= \int_0^{\pi z^s} \tan(t - \sin^{-1}\sin^k t) \d t\\
+    \implies& r(z) &&= r_0 \exp\left(\int_0^{\pi z^s} \tan(t - \sin^{-1}\sin^k t) \d t\right)
+\end{align*}
+
+\subsection{Transformation}
+\begin{thm}[Expression as a morphed arcsin beta distribution]
+    $Y \sim \Beta(\frac{k+1}{2}, \frac{1}{2})$ and $R \sim \Ber (\frac 1 2)$, then
+    \[Z = \left[ R \sin^{-1} \sqrt Y + (1-R) (\pi - \sin^{-1} \sqrt Y) \right]^{1 \over s}\]
+    follows a $\Sinu(1,k)$ distribution.
+\end{thm}
+\begin{proof}
+Consider the transformation $Y = \sin^2(X)$ for $X \in [0, \pi/2]$. The Jacobian of the transformation is:
+\begin{equation}
+\left| \frac{dx}{dy} \right| = \frac{1}{2\sin(x)\cos(x)} = \frac{1}{2y^{1/2}(1-y)^{1/2}}
+\end{equation}
+Substituting the density $f_X(x) \propto \sin^K(x) = y^{K/2}$:
+\begin{equation}
+f_Y(y) \propto y^{K/2} \cdot y^{-1/2}(1-y)^{-1/2} = y^{\frac{K+1}{2} - 1}(1-y)^{\frac{1}{2} - 1}
+\end{equation}
+This identifies $Y$ as $\text{Beta}\left(\frac{K+1}{2}, \frac{1}{2}\right)$. The full support $[0, \pi]$ is obtained by reflecting $X$ across $\pi/2$ with probability $0.5$ via the Bernoulli variable $S$.
+
+Let $U = \pi Z^S$. The Jacobian of the inverse transformation $z = (u/\pi)^{1/S}$ is $|dz/du| \propto u^{(1-S)/S}$. The density of $U$ is:
+\begin{equation}
+f_U(u) \propto f_Z((u/\pi)^{1/S}) \cdot u^{(1-S)/S} \propto (u^{(S-1)/S} \sin^K u) \cdot u^{(1-S)/S} = \sin^K u
+\end{equation}
+on $u \in [0, \pi]$. By the Beta-transformation theorem for $\sin^K u$, the variable $U$ is generated using $Y \sim \text{Beta}(\frac{K+1}{2}, \frac{1}{2})$. Reversing the power transformation $Z = (U/\pi)^{1/S}$ completes the proof.\end{proof}
+
+
+\subsection{Joint Density}
+\begin{thm}[Joint density expression]
+    For $X_1\dots X_n \sim \Sinu(a,d,s,k)$, their joint density can be expressed as:
+    \[f(x_1\dots x_n) = \]
+\end{thm}
+\begin{proof}
+    \begin{align*}
+        f(x_1\dots x_n)
+        &= \frac{1}{d^n A^n(s,k)} \left[ \prod_{j=1}^n \sin \pi \left( \frac{x_j-a}{d}\right)^s \right]^k & \\
+        &=\frac{1}{d^n A^n(s,k)} \left[ \prod_{j=1}^n \sin \theta_j \right] ^k\\
+        &= \frac{1}{d^n A^n(s,k)} \left[ \prod_{j=1}^n \cos w_j\right]^k && \text{where } w_j= \pi z_j^s - \frac{\pi}{2} \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\\
+    \end{align*}
+    Now, \begin{align*}
+        \prod_j^n \cos w_j
+        &= \prod_{j=1}^n \left( \e^{\i \omega_j} + \e^{-\i \omega_j} \over 2 \right)\\
+        &= {1 \over 2^n} \sum_{\vec r \in \{+1, -1\}^n} \e^{\i \sum_j r_j \omega_j}  &&  \text{[Claim]}\\
+        &=\frac{1}{2^n}\sum_{(r_1\dots r_n)\in\{+1,-1\}^n} \cos\sum_{j=1}^nr_jw_j\\
+        &= \frac{1}{2^n}\sum_{(r_1\dots r_n)\in\{+1,-1\}^n} \cos\sum_{j=1}^n r_j w_j\\
+        &= \frac{1}{2^n}\sum_{(r_1\dots r_n)\in\{+1,-1\}^n} \cos \left(\pi \sum_{j=1}^n r_j z_j^s - \frac{\pi}{2}\sum_{j=1}^n r_j \right) && \sum r_j \text{ is the ``net valency''}\\
+        &= \color{orange}{\begin{cases}
+        (-1)^{\frac{n}{2}+r} \cos\left( \pi \sum_{j=1}^n r_j z_j^s \right) & n\text{ even}\\
+        (-1)^{\frac{n-1}{2}+r} \sin\left( \pi \sum_{j=1}^n r_j z_j^s \right) & n\text{ odd}\\
+        \end{cases}}\\
+    \end{align*}
+    Alternatively, staying intactly with $\sin$,
+    \begin{align*}
+        \prod_{j=1}^n \sin \theta_j
+        &= \prod_{j=1}^n \left( \e^{\i \omega_j} - \e^{-\i \omega_j} \over 2 \right)\\
+        &= {1 \over 2^n} \sum_{\vec r \in \{+1, -1\}^{2n}} \e^{\i \sum_j r_j \omega_j}  &&  \text{[Claim]}\\
+        &=\frac{1}{2^n}\sum_{(r_1\dots r_n)\in\{+1,-1\}^n} \cos\sum_{j=1}^nr_jw_j\\
+        &= \frac{1}{2^n}\sum_{(r_1\dots r_n)\in\{+1,-1\}^n} \cos\sum_{j=1}^n r_j w_j\\
+        &= \frac{1}{2^n}\sum_{(r_1\dots r_n)\in\{+1,-1\}^n} \cos \left(\pi \sum_{j=1}^n r_j z_j^s - \frac{\pi}{2}\sum_{j=1}^n r_j \right) && \sum r_j \text{ is the ``net valency''}\\
+        &= \color{orange}{\begin{cases}
+        (-1)^{\frac{n}{2}+r} \cos\left( \pi \sum_{j=1}^n r_j z_j^s \right) & n\text{ even}\\
+        (-1)^{\frac{n-1}{2}+r} \sin\left( \pi \sum_{j=1}^n r_j z_j^s \right) & n\text{ odd}\\
+        \end{cases}}\\
+    \end{align*}
+
+    Proof of proposition by induction
+    \begin{align*}
+        \text{To be done}
+    \end{align*}
+    Then the sum over $r_j$'s partition modularly, so that if $\sum r_j \mod 4$ is 0, then cos, is 1 then sin, is 2 then -cos, is 3 then -sin. However the sum over the first term $r_jz_j^s$ involves convoluted $r_j$ with $z_j^s$. Thus, no significant simplification may be possible upon this partitioning of the $\sum r_j$ values into modulo 4 groups. In fact this may bring in an excess descriptive specification without adding simplicity to calculation.
+\end{proof}
+\begin{rmk}[Pearsonian Random Walk]
+    This is 
+\end{rmk}
+
+\subsection{Normalizing Constant for the symmetric case}
+Closed form expression for s=1
+\begin{thm}[Calculation of the normalizing constant, symmetric case]
+    \[A(1,k) \equiv \int_0^1 \sin^k(\pi t) \, \d t = \frac{2^k}{\pi} \Beta \left(\frac{k+1}{2}, \frac{k+1}{2}\right)\]
+\end{thm}
+\begin{proof}
+    \begin{align*}
+        \int_0^1 \sin^k(\pi t) \d t & = \int_0^\pi \sin^k \theta \frac{\d \theta}{\pi}\\
+        & = \frac{1}{\pi} 2^k \Beta \left(\frac{k+1}{2}, \frac{k+1}{2}\right) &\text{[\cite[Eq. 3.621]{Zwillinger}]}
+    \end{align*}
+\end{proof}
+
+\subsection{CDF for the symmetric case}
+\begin{thm}[Indefinite Integral of the Kernel, Symmetric Case]
+    When $k\in \ZZ^+$, $s=1$, we have --
+    \[A_z(1,k) = \int_0^z \sin^k\pi t \, dt = \begin{cases}
+        \frac{1}{2^{2n}} {2n \choose n} z + \frac{(-1)^n}{\pi 2^{2n-1}}\sum_{k=0}^{n-1} (-1)^k {2n \choose k} \frac{\sin 2(n-k)\pi z}{2(n-k)}\\
+        \frac{1}{\pi 2^{2n}}(-1)^n \sum_{k=0}^n (-1)^k {2n+1 \choose k} \frac{1 - \cos (2n+1-2k)\pi z}{2n+1-2k}
+    \end{cases}\]
+\end{thm}
+\begin{proof}
+    \begin{align*}
+        \int_0^z \sin^k (\pi t) \d t &= \frac 1 \pi \int_0^{\pi z} \sin^k \theta \d \theta  \quad \hfill  \left[\theta := \pi t \implies \d t = \frac{\d \theta}{\pi}\right]\\
+        &= \frac{1}{\pi} \cdot \left. \begin{cases}
+            \frac{1}{2^{2n}} {2n \choose n} \theta + \frac{(-1)^n}{2^{2n-1}}\sum_{k=0}^{n-1} (-1)^k {2n \choose k} \frac{\sin[2(n-k)\theta]}{2(n-k)} & [k=2n]\\
+            \frac{1}{2^{2n}}(-1)^{n+1} \sum_{k=0}^n (-1)^k {2n+1 \choose k} \frac{\cos (2n+1-2k)\theta}{2n+1-2k} & [k=2n+1]
+        \end{cases} \right|_{\theta=0}^{\pi z} \\
+        & \hfill \text{[\cite[Eq. 2.513-1,2]{Zwillinger}]} \\
+        &= \frac{1}{\pi} \cdot \begin{cases}
+             \frac{1}{2^{2n}} {2n \choose n} \pi z + \frac{(-1)^n}{2^{2n-1}}\sum_{k=0}^{n-1} (-1)^k {2n \choose k} \frac{\sin [2\pi (n-k) z]}{2(n-k)} & [k=2n]\\
+        \frac{1}{2^{2n}}(-1)^n \sum_{k=0}^n (-1)^k {2n+1 \choose k} \frac{1 - \cos (2n+1-2k)\pi z}{2n+1-2k} & [k=2n+1]
+        \end{cases}
+    \end{align*}
+\end{proof}
+
+\subsection{Concentration Inequalities}
+\begin{thm}[\sindist{} is sub-Gaussian]
+    $X \sim \Sinu (a,d,s,k)$ is sub-Gaussian with parameter $\frac{d^2}{4}$
+\end{thm}
+\begin{proof}
+    $\because a \le X \le a+d \quad\text{a.s.}$, $\therefore \E \left[ \e^{\lambda (X - \E X)} \right] \le \exp \left( -\frac{\lambda d^2}{8} \right)$ by Hoeffding's lemma.
+
+    Note that because it is sub-Gaussian, it is also sub-Exponential.
+\end{proof}
+
+
+\section{Properties involving the Generalized Hypergeometric Function}
+
+\subsection*{Introduction to GHF}
+We will essentially talk about GHgF's (Generalized Hypergeometric Functions), i.e. GHgS's (Generalized Hypergeometric Series's) that converge. We will mention special cases such as Gausssian HgF's and (Kummer's) Confluent HgF's when required.
+
+\[\Fhyp_q^p \left(\begin{matrix} a_1 & \cdots & a_p \\ b_1 & \cdots & b_q\ \end{matrix} ; x \right) := \sum_{j=0}^\infty \frac{\poch{a_1}[j] \cdots \poch{a_p}[j]}{\poch{b_1}[j] \cdots \poch{b_q}[j]} \frac{x^j}{j!}\]
+is defined to be the Generalized Hypergeometric Function calculated at the argument $x$, where:
+$\poch x := x(x+1)\cdots(x+n-1)$ is the Rising Factorial / Pochhammer function.
+
+Note than if $\Fhyp_j :\equiv \frac{\poch{a_1}[j] \cdots \poch{a_p}[j]}{\poch{b_1}[j] \cdots \poch{b_q}[j]} \frac{x^j}{j!}$ denotes the $j$\textsuperscript{th} term ($j = 0(1)\infty$) of the summation, so that $\Fhyp^p_q \equiv \sum_{j=0}^\infty \Fhyp_j$, then the ratio of consecutive terms of a GHgF defines its parameters and arguments:
+\[ \frac{\Fhyp_{n+1}}{\Fhyp_n} \left[ \begin{matrix} a_1 \cdots a_p \\ b_1 \cdots b_1 \end{matrix}; z \right] = \frac{(a_1 + n) \cdots (a_p +n)}{(b_1 +n)\cdots(b_q +n)} \frac{z}{n+1} \] \label{eq:hgfratio}
+
+We also need the Generalized Binomial expansion formula because $k$ may not be integer. Define from hereon ${r \choose k} = {\poch{r}[k] \over k!}$ as the generalized binomial coefficient. Then $(x+y)^r = \sum_{k=0}^\infty {r \choose k} x^{r-k} y^k$. This series is the same as the finite expansion obtained for $r \in \ZZ^+$, and is otherwise an infinite series.
+
+\subsection{Kernel}
+\begin{thm}[Kernel as Binomial sum of Euler-form]
+    \begin{equation}\label{eq:kernelbin}
+        \sin^k (\pi z^s) =  \frac{1}{(2\i)^k} \sum_{j=0}^\infty {k \choose j} (-1)^j \e^{\i (k-2j) \pi z^s}
+    \end{equation}
+\end{thm}
+\begin{proof}
+    \begin{align*}
+        \sin^k(\pi z^s) &= \sin^k \theta &&\text{[let $\theta:= \pi z^s$]}\\
+        &= \left( \frac{\e^{i\theta} - \e^{-i\theta}}{2i} \right)^k  && \because \e^{\i \theta} = \cos \theta + \i \sin \theta\\
+        &= \frac{1}{(2\i)^k} \sum_{n=0}^\infty {k \choose n} \e^{\i \theta (k-n)} (-\e)^{-\i \theta n} && \because |\e^{\i \theta} | = |-\e^{- \i \theta}| \text{ and in this case, equality is good enough. WHY?}\\
+        &= \frac{1}{(2\i)^k} \sum_{n=0}^\infty {k \choose n} (-1)^n \e^{\i \theta (k-2n)}\\
+        &\equiv \frac{1}{(2\i)^k} \sum_{n=0}^\infty {k \choose n} (-1)^n \e^{\i (k-2n) \pi z^s}
+    \end{align*}
+
+\end{proof}
+
+\begin{thm}[Kernel via Generalized Hypergeometric Function]
+    \begin{align}
+        \sin^k (\pi z^s) &=  (\pi z^s)^k \left( {}_0 \Fhyp_1 \left[ \begin{matrix} 0 \\ \frac{3}{2} \end{matrix}; -\frac{\pi^2 u^2}{4}\right] \right)^k \label{eq:kernelghfreal}\\
+        &= \Fhyp^1_0 \left[ \begin{matrix}k\\ \cdot\end{matrix};  -\exp(-2 \i \pi z^s) \right] \label{eq:kernelhgfcomplex}
+    \end{align}
+\end{thm}
+\begin{proof}
+    First we work with the Taylor expansion of $\sin \theta$:
+    \begin{align*}
+        \sin^k(\pi u) &= (\pi u)^k \left[ \sum_{j=0}^{\infty} \frac{(-1)^j (\pi u)^{2j}}{(2j+1)!} \right]^k\\
+        &= (\pi u)^k \left[ \sum_{j=0}^\infty {\left( -\frac{\pi^2 u^2}{4} \right)^j \over \poch{\frac{3}{2}}[j] j! } \right]^k & \because \poch{\frac{3}{2}}[j] = {(2j+1)! \over 2^{2j} j!}\\
+        &= (\pi u)^k \left( {}_0 \Fhyp_1 \left[ \begin{matrix} \cdot \\ \frac{3}{2} \end{matrix}; \, -\frac{\pi^2 u^2}{4}\right] \right)^k
+    \end{align*}
+
+    Alternatively, we construct the required HGF from the ratio of its terms, taking inspiration from \autoref{eq:hgfratio}. Note that if we were to express the infinite summation in \autoref{eq:kernelbin} as a HGF, then the ratio of its terms would give:
+    \[ \frac{\Fhyp_{n+1}}{\Fhyp_n} = (k+n) \frac{- \exp(-2 \i \pi z^s) }{n+1} \]
+    This should be equivalent to the following HGF:
+    \[ \Fhyp^1_0 \left[ \begin{matrix}k\\ \cdot\end{matrix};  -\exp(-2 \i \pi z^s) \right] \]
+    We find that a dual representation is possible, but not much reconciliation or interpretation to this duality is found as of yet.
+\end{proof}
+
+\subsection{Characteristic Function}
+\begin{thm} \label{thm:cf}
+    For $Z \sim \Sinu(s,k)$, its CF is given as --
+    \begin{equation}\label{eq:cf}
+        \varphi_Z(t) = \frac{1}{(2\i)^k A(s,k)} \sum_{j=0}^{\infty} \sum_{m=0}^{\infty} \frac{(-1)^j \binom{k}{j} (\i t)^m}{(m+1)!} {}_1\Fhyp_1\left[ \begin{matrix}\frac{m+1}{s}\\ \frac{m+1}{s} + 1 \end{matrix};\, \i\pi(k-2j) \right]
+    \end{equation}
+    Additionally, the MGF is given as --
+    \begin{equation}
+        \upphi_Z(t) \equiv \varphi_Z(-it) = \frac{1}{(2\i)^k A(s,k)} \sum_{j=0}^{\infty} \sum_{m=0}^{\infty} \frac{(-1)^j \binom{k}{j} t^m}{(m+1)!} {}_1\Fhyp_1\left[ \begin{matrix}\frac{m+1}{s}\\ \frac{m+1}{s} + 1 \end{matrix};\, \i\pi(k-2j) \right]
+    \end{equation}
+\end{thm}
+\begin{proof}
+    \begin{align*}
+        \varphi_Z(t)
+        &=\int_0^\infty\e^{\i tz} \psi(z; s,k) \d z\\
+        &=\frac{1}{A(s,k)} \int_0^1 e^{\i tz} \frac{1}{(2i)^k} \sum_{j=0}^{\infty} \binom{k}{j} (-1)^j e^{\i\pi(k-2j)z^s} \d z && \text{[\autoref{eq:kernelbin}]}\\
+        &= \frac{1}{(2i)^k A(s,k)} \sum_{j=0}^{\infty} (-1)^j \binom{k}{j} \int_{0}^{1} \e^{\i tz} \e^{\pi(k-2j)z^s} \d z \numberthis \label{eq:I1}
+    \end{align*}
+    Call the inner integral $\mathcal I_1:=  \int_{0}^{1} \e^{\i tz} \e^{\pi(k-2j)z^s} \d z$. Note that it can be reformulated by expanding $\e^{\i tz}$ in its Taylor expansion, giving --\begin{align*}
+        \mathcal I_1 &= \int_{0}^{1} \left( \sum_{m=0}^{\infty} \frac{(\i t)^m z^m}{m!} \right) e^{\i\pi(k-2j)z^s} \d z  &&  \text{Taylor Expansion}\\
+        &= \sum_{m=0}^{\infty} \frac{(\i t)^m}{m!} \int_{0}^{1} z^m e^{\i\pi(k-2j)z^s} \d z  &&  \text{Swapping $\sum$ and $\int$ $\because$ absolute convergence of the Taylor series on the compact support $[0,1]$} \numberthis \label{eq:I2}
+    \end{align*}
+    Call the inner integral $\mathcal I_2:=  \int_{0}^{1} z^m e^{\i\pi(k-2j)z^s} \d z$ Then, writing $\omega := \pi(k-2j)$ and substituting $u = z^s$, thereby $\implies z = u^{1/s}$ and $\d z = \frac{1}{s} u^{1/s - 1} \d u$, we have --
+    \begin{align*}
+        \mathcal I_2 &= \int_{0}^{1} (u^{1/s})^m e^{\i\omega u} \frac{1}{s} u^{1/s - 1} \d u\\
+        &= \frac{1}{s} \int_{0}^{1} u^{\frac{m+1}{s} - 1} e^{i\omega u} \d u\\
+        &= \frac{1}{m+1} {}_1\Fhyp_1\left[ \begin{matrix}\frac{m+1}{s}\\ \frac{m+1}{s} + 1 \end{matrix};\, \i\pi(k-2j) \right] && \text{\cite[13.4.E1]{NIST:DLMF}} \addtocounter{equation}{1} \tag\theequation \label{eq:I3}
+    \end{align*}
+    So substituting the formulations \autoref{eq:I2}, \autoref{eq:I3} back into the parent equation \autoref{eq:I1}, we have --
+    \begin{equation*}
+        \varphi_Z(t) = \frac{1}{(2i)^k A(s,k)} \sum_{j=0}^{\infty} \sum_{m=0}^{\infty} \frac{(-1)^j \binom{k}{j} (\i t)^m}{(m+1)!} {}_1\Fhyp_1\left[ \begin{matrix}\frac{m+1}{s}\\ \frac{m+1}{s} + 1 \end{matrix};\, \i\pi(k-2j) \right]
+    \end{equation*}
+\end{proof}
+
+\subsection{Moments}
+\begin{thm}
+    \begin{equation}
+        \upmu_n(s,k) \equiv E[Z^n] = \frac{1}{(n+1)(2\i)^k A(s,k)} \sum_{j=0}^{\infty} (-1)^j \binom{k}{j} \Fhyp^1_1 \left[ \begin{matrix}
+            \frac{n+1}{s}\\ \frac{n+1}{s} + 1
+        \end{matrix}; \, \i\pi(k-2j) \right]
+    \end{equation}
+\end{thm}
+\begin{proof}
+By $n^\th$ order differentiation of the Characteristic Function \autoref{eq:cf}, since it is known that $E[Z^n] = \frac{1}{\i^n} \left[ \frac{\d^n}{\d t^n} \varphi_Z(t) \right]_{t=0}$:
+\begin{align*}
+    \frac{\d}{\d t} \varphi_Z(t)\Bigg|_{t=0} &= \frac{1}{\i^n} \cdot \frac{1}{(2\i)^k A(s,k)} \sum_{j=0}^{\infty} \frac{(-1)^j \binom{k}{j} (\i^n n!)}{(n+1)!} \Fhyp^1_1 \left[ \begin{matrix}
+        \frac{n+1}{s} \\ \frac{n+1}{s} + 1
+    \end{matrix}; \i\pi(k-2j) \right]\\
+    & \hfill \left[\because \frac{\d^n}{\d t^n} (\i t)^m \Bigg|_{t=0} = \begin{cases} \i^n \cdot n! & \text{if } m = n \\ 0 & \text{if } m \neq n \end{cases} \right]
+\end{align*}
+
+Alternatively, by direct calculation from PDF:
+    \begin{align*}
+        \int_0^1 z^r \sin^k (\pi z^s) \d z\\
+        &= \int_0^1 z^r \frac{1}{(2\i)^k} \sum_{j=0}^\infty {k \choose j} (-1)^j \e^{\i (k-2j) \pi z^s} \d z\\
+        &= \frac{1}{(2\i)^k} \sum_{j=0}^\infty {k \choose j} (-1)^j \int_0^1 \left[ \sum_{n=0}^{\infty} z^r \frac{[\i (k-2j) \pi z^s]^n}{n!} \right] \d z && \text{[Taylor expansion for $\e$]}\\
+        &= \frac{1}{(2\i)^k} \sum_{j=0}^\infty {k \choose j} (-1)^j \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi]^n}{n! (ns+r+1)} && \left[\text{Substitute $\int$ and $\sum$}\right]\\
+    \end{align*}
+    Note that attempts of the following kind do not work elegantly after the 2nd step:
+    \begin{align*}
+        E[Z^r] & = \frac{1}{sA(s,k)} \int_{0}^{1} (u^{1/s})^r \sin^k(\pi u) u^{\frac{1}{s}-1} du\\
+        &= \frac{1}{sA(s,k)} \int_{0}^{1} u^{\frac{r+1}{s}-1} \sin^k(\pi u) du
+    \end{align*}
+\end{proof}
+
+\subsection{CDF and Hazard}
+\begin{thm}
+    \begin{equation}
+        \Psi(z; s,k) = \frac{(\pi z^s)^{k+1}}{\pi s (k+1) A(s, k)} \, \Fhyp^1_2\left[ \begin{matrix} \frac{k+1}{2}\\ \frac{3}{2} & \frac{k+3}{2}\end{matrix}; -\frac{\pi^2 z^{2s}}{4} \right]
+    \end{equation}
+\end{thm}
+\begin{proof}
+    \begin{align*}
+        \Psi(z; s, k) &= \frac{1}{A(s,k)} \int_0^z \sin^k(\pi t^s) \d t\\
+        \text{Now } \int_0^z \sin^k(\pi t^s) \d t & = \int_0^1 \sin^k(\pi u) \frac{1}{s} u^{1/s-1} \d u  &&  u:=t^s \implies t = u^{1/s}; \d t = \frac{1}{s} u^{1/s -1} \d u\\
+        &= \frac{1}{s} \int_0^1 \sum ??? DEAD \; END
+    \end{align*}
+    
+\end{proof}
+
+\subsection{Normalizing Constant}
+\begin{thm}[A(s,k) for s not 1]
+    \[A(s,k) = \]
+\end{thm}
+\begin{proof}
+    \begin{align*}
+        A(s,k) &= \int_0^1 \frac{1}{(2\i)^k} \sum_{j=0}^\infty {k \choose j} (-1)^j \e^{\i (k-2j) \pi z^s} \d z  &&  \text{[\autoref{eq:kernelbin}]}\\
+        &= \frac{1}{(2\i)^k} \sum_{j=0}^\infty {k \choose j} (-1)^j \int_0^1 \e^{\i (k-2j) \pi z^s} \d z\\
+        &=
+    \end{align*}
+\end{proof}

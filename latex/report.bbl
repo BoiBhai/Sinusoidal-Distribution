@@ -1,0 +1,407 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{chalabi2012flexible}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ca1ed18d80f327b660f91db7d39018da}{%
+           family={Chalabi},
+           familyi={C\bibinitperiod},
+           given={Yohan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c3ae6fff34b8e4db3be06f727e1b8fe0}{%
+           family={Scott},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima J},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6b25a405a576cec69404294af6d9304a}{%
+           family={Wuertz},
+           familyi={W\bibinitperiod},
+           given={Diethelm},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6bd9927a81e38ed3f07d7e894080c42f}
+      \strng{fullhash}{6bd9927a81e38ed3f07d7e894080c42f}
+      \strng{fullhashraw}{6bd9927a81e38ed3f07d7e894080c42f}
+      \strng{bibnamehash}{6bd9927a81e38ed3f07d7e894080c42f}
+      \strng{authorbibnamehash}{6bd9927a81e38ed3f07d7e894080c42f}
+      \strng{authornamehash}{6bd9927a81e38ed3f07d7e894080c42f}
+      \strng{authorfullhash}{6bd9927a81e38ed3f07d7e894080c42f}
+      \strng{authorfullhashraw}{6bd9927a81e38ed3f07d7e894080c42f}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Flexible distribution modeling with the generalized lambda distribution}
+      \field{year}{2012}
+    \endentry
+    \entry{NIST:DLMF}{misc}{}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://dlmf.nist.gov/}, Release 1.2.5 of 2025-12-15}
+      \field{note}{F.~W.~J. Olver, A.~B. {Olde Daalhuis}, D.~W. Lozier, B.~I. Schneider, R.~F. Boisvert, C.~W. Clark, B.~R. Miller, B.~V. Saunders, H.~S. Cohl, and M.~A. McClain, eds.}
+      \field{shorthand}{NIST DLMF}
+      \field{title}{NIST Digital Library of Mathematical Functions}
+      \verb{urlraw}
+      \verb https://dlmf.nist.gov/
+      \endverb
+      \verb{url}
+      \verb https://dlmf.nist.gov/
+      \endverb
+    \endentry
+    \entry{edwards2000sine}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7ece223ad1eff0e7831327a00c981965}{%
+           family={Edwards},
+           familyi={E\bibinitperiod},
+           given={A.W.F.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7ece223ad1eff0e7831327a00c981965}
+      \strng{fullhash}{7ece223ad1eff0e7831327a00c981965}
+      \strng{fullhashraw}{7ece223ad1eff0e7831327a00c981965}
+      \strng{bibnamehash}{7ece223ad1eff0e7831327a00c981965}
+      \strng{authorbibnamehash}{7ece223ad1eff0e7831327a00c981965}
+      \strng{authornamehash}{7ece223ad1eff0e7831327a00c981965}
+      \strng{authorfullhash}{7ece223ad1eff0e7831327a00c981965}
+      \strng{authorfullhashraw}{7ece223ad1eff0e7831327a00c981965}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The sine distribution introduced by the astronomer G.K. Gilbert in 1892 is revived as an interesting example of an elementary continuous distribution suitable for teaching purposes.}
+      \field{journaltitle}{Teaching Statistics}
+      \field{number}{3}
+      \field{title}{Gilberts Sine Distribution}
+      \field{volume}{22}
+      \field{year}{2000}
+      \field{pages}{70\bibrangedash 71}
+      \range{pages}{2}
+      \verb{doi}
+      \verb https://doi.org/10.1111/1467-9639.00026
+      \endverb
+      \verb{eprint}
+      \verb https://onlinelibrary.wiley.com/doi/pdf/10.1111/1467-9639.00026
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-9639.00026
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-9639.00026
+      \endverb
+    \endentry
+    \entry{gilbert1893moon}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bac1817a388f795d7b1156b8bdc6f85d}{%
+           family={Gilbert},
+           familyi={G\bibinitperiod},
+           given={G.K.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Philosophical Society of Washington}%
+      }
+      \strng{namehash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{fullhash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{fullhashraw}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{bibnamehash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{authorbibnamehash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{authornamehash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{authorfullhash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{authorfullhashraw}{bac1817a388f795d7b1156b8bdc6f85d}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Bulletin. Philosophical Society of Washington}
+      \field{title}{The Moon's Face: A Study of the Origin of Its Features}
+      \field{year}{1893}
+      \verb{urlraw}
+      \verb https://books.google.co.in/books?id=NIkEAAAAYAAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.co.in/books?id=NIkEAAAAYAAJ
+      \endverb
+    \endentry
+    \entry{kumar2015bladder}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ca8f4119a21580b01c28dd3bee5363c8}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Dinesh},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=2a1f936363cf7e8198f5b39f2873f655}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Umesh},
+           giveni={U\bibinitperiod},
+           givenun=1}}%
+        {{un=1,uniquepart=given,hash=c407c30a6f3a9b575f4840c5a5759a16}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Sanjay\bibnamedelima Kumar},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {Natural Sciences Publishing Corp}%
+      }
+      \strng{namehash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{fullhash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{fullhashraw}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{bibnamehash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{authorbibnamehash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{authornamehash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{authorfullhash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{authorfullhashraw}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Statistics Applications \& Probability}
+      \field{number}{3}
+      \field{title}{A new distribution using sine function-its application to bladder cancer patients data}
+      \field{volume}{4}
+      \field{year}{2015}
+      \field{pages}{417}
+      \range{pages}{1}
+    \endentry
+    \entry{lagrange1770memoire}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0478033f1a18af0c5e59f9253819ec62}{%
+           family={La\bibnamedelima Grange},
+           familyi={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Joseph\bibnamedelima Louis},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0478033f1a18af0c5e59f9253819ec62}
+      \strng{fullhash}{0478033f1a18af0c5e59f9253819ec62}
+      \strng{fullhashraw}{0478033f1a18af0c5e59f9253819ec62}
+      \strng{bibnamehash}{0478033f1a18af0c5e59f9253819ec62}
+      \strng{authorbibnamehash}{0478033f1a18af0c5e59f9253819ec62}
+      \strng{authornamehash}{0478033f1a18af0c5e59f9253819ec62}
+      \strng{authorfullhash}{0478033f1a18af0c5e59f9253819ec62}
+      \strng{authorfullhashraw}{0478033f1a18af0c5e59f9253819ec62}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mémoire sur l'utilité de la méthode de prendre le milieu entre les résultats de plusieurs observations}
+      \field{year}{1770}
+    \endentry
+    \entry{mahmood2019sineg}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=40cf64cff8f31da2687b90a1932cf066}{%
+           family={Mahmood},
+           familyi={M\bibinitperiod},
+           given={Zafar},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c4d230194fe09d5aa4d270a75821e5bf}{%
+           family={Chesneau},
+           familyi={C\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1cd88cc92b5aad416ad0c405227c072e}{%
+           family={Tahir},
+           familyi={T\bibinitperiod},
+           given={Muhammad\bibnamedelima Hussain},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3dde54a1323e659ca5d55833e311a033}
+      \strng{fullhash}{3dde54a1323e659ca5d55833e311a033}
+      \strng{fullhashraw}{3dde54a1323e659ca5d55833e311a033}
+      \strng{bibnamehash}{3dde54a1323e659ca5d55833e311a033}
+      \strng{authorbibnamehash}{3dde54a1323e659ca5d55833e311a033}
+      \strng{authornamehash}{3dde54a1323e659ca5d55833e311a033}
+      \strng{authorfullhash}{3dde54a1323e659ca5d55833e311a033}
+      \strng{authorfullhashraw}{3dde54a1323e659ca5d55833e311a033}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bull. Comput. Appl. Math.}
+      \field{number}{1}
+      \field{title}{A new sine-G family of distributions: properties and applications}
+      \field{volume}{7}
+      \field{year}{2019}
+      \field{pages}{53\bibrangedash 81}
+      \range{pages}{29}
+    \endentry
+    \entry{pearson1902systematic}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b69135425e9c9d6adc927b94c33421d4}{%
+           family={Pearson},
+           familyi={P\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {[Oxford University Press, Biometrika Trust]}%
+      }
+      \strng{namehash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{fullhash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{fullhashraw}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{bibnamehash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{authorbibnamehash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{authornamehash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{authorfullhash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{authorfullhashraw}{b69135425e9c9d6adc927b94c33421d4}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{00063444, 14643510}
+      \field{journaltitle}{Biometrika}
+      \field{number}{3}
+      \field{title}{On the Systematic Fitting of Curves to Observations and Measurements}
+      \field{urlday}{4}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{volume}{1}
+      \field{year}{1902}
+      \field{urldateera}{ce}
+      \field{pages}{265\bibrangedash 303}
+      \range{pages}{39}
+      \verb{urlraw}
+      \verb http://www.jstor.org/stable/2331540
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/2331540
+      \endverb
+    \endentry
+    \entry{staudte2017dqf}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9f66bafc31cde9ad9621dd8ee9304589}{%
+           family={Staudte},
+           familyi={S\bibinitperiod},
+           given={Robert\bibnamedelima G.},
+           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Informa UK Limited}%
+      }
+      \strng{namehash}{9f66bafc31cde9ad9621dd8ee9304589}
+      \strng{fullhash}{9f66bafc31cde9ad9621dd8ee9304589}
+      \strng{fullhashraw}{9f66bafc31cde9ad9621dd8ee9304589}
+      \strng{bibnamehash}{9f66bafc31cde9ad9621dd8ee9304589}
+      \strng{authorbibnamehash}{9f66bafc31cde9ad9621dd8ee9304589}
+      \strng{authornamehash}{9f66bafc31cde9ad9621dd8ee9304589}
+      \strng{authorfullhash}{9f66bafc31cde9ad9621dd8ee9304589}
+      \strng{authorfullhashraw}{9f66bafc31cde9ad9621dd8ee9304589}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1029-4910}
+      \field{journaltitle}{Statistics}
+      \field{month}{1}
+      \field{number}{4}
+      \field{title}{The shapes of things to come: probability density quantiles}
+      \field{volume}{51}
+      \field{year}{2017}
+      \field{pages}{782\bibrangedash 800}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1080/02331888.2016.1277225
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1080/02331888.2016.1277225
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1080/02331888.2016.1277225
+      \endverb
+    \endentry
+    \entry{Zwillinger}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=eee5cd221949b514b82d85dc9cee1887}{%
+           family={Zwillinger},
+           familyi={Z\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8dcd8e39f7286663b32fb576657b04ab}{%
+           family={Jeffrey},
+           familyi={J\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{06029c38c964744b738997e54ba74daf}
+      \strng{fullhash}{06029c38c964744b738997e54ba74daf}
+      \strng{fullhashraw}{06029c38c964744b738997e54ba74daf}
+      \strng{bibnamehash}{06029c38c964744b738997e54ba74daf}
+      \strng{authorbibnamehash}{06029c38c964744b738997e54ba74daf}
+      \strng{authornamehash}{06029c38c964744b738997e54ba74daf}
+      \strng{authorfullhash}{06029c38c964744b738997e54ba74daf}
+      \strng{authorfullhashraw}{06029c38c964744b738997e54ba74daf}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780080471112}
+      \field{shorthand}{Zwillinger}
+      \field{title}{Table of Integrals, Series, and Products}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://books.google.co.in/books?id=aBgFYxKHUjsC
+      \endverb
+      \verb{url}
+      \verb https://books.google.co.in/books?id=aBgFYxKHUjsC
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

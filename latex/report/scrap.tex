@@ -1,0 +1,91 @@
+\subsection{Polynomial expression}
+
+\newcommand{\I}{\mathbf I}
+\newcommand{\M}{\mathbb M}
+\renewcommand{\i}{\mathrm i}
+\newcommand{\tlrtrm}{\mathrm{tlrtrm}}
+\newcommand{\tlrsum}{\mathrm{tlrsum}}
+\begin{thm}[Transposed Taylor Approximations]
+    \begin{align*}
+    \I(r) \big|_0^1
+        &:= \int_{0}^{1} \eu^{tz} z^r \d{z} \\
+        &= z^r \frac{e^{tz}}{t} - \int_0^1 r z^{r-1} \frac{e^{tz}}{t} \d{z} \\
+        &= \frac{\i(r) \big|_0^1}{t}-\frac{r}{t} \I(r-1) \big|_0^1 \\
+        &= \frac{\i(r) \big|_0^1}{t}-\frac{r}{t} \left[ \frac{\i(r-1) \big|_0^1}{t}-\frac{r-1}{t} \I(r-2) \big|_0^1 \right] \\
+        &= \frac{\i(r) \big|_0^1}{t}-\frac{r}{t} \left[ \frac{\i(r-1) \big|_0^1}{t}-\frac{r-1}{t}  \left[ \frac{\i(r-2) \big|_0^1}{t}-\frac{r-2}{t} \left[ \frac{\i(r-3) \big|_0^1}{t}-\frac{r-3}{t} [\dots] \right] \right] \right] \\
+        &= \frac{\eu^{t}}{t}-\frac{r}{t} \left[ \frac{\eu^{t}}{t}-\frac{r-1}{t}  \left[ \frac{\eu^{t}}{t}-\frac{r-2}{t} \left[ \frac{\eu^{t}}{t}-\frac{r-3}{t} [\dots] \right] \right] \right] \\
+        &= \frac{e^{t}}{t} \left[ 1 - \frac{r}{t} \left[ 1 - \frac{r-1}{t} \left[ \dots \left[ 1 - \frac{2}{t} \left[ 1 - \frac{1}{t} \right] \right] \right] \right] \right]
+    \end{align*}
+\end{thm}
+
+\[ g(z) = \sin^k (\pi z^s) \]
+\[ f(z) = \frac{g(z)}{\Delta} \]
+\[ \alpha = \frac{1}{2}^\frac{1}{s} \]
+
+\begin{align}
+    g(z)
+    &= g(\alpha) + \tlrtrm{g}{1}{\alpha} (z-\alpha) + \tlrtrm{g}{2}{\alpha} (z-\alpha)^2 + \dots \\
+    &= \tlrsum{g}{\alpha} (z-\alpha)^n
+\end{align}
+
+\begin{align*}
+    \mu'_r
+    &= \int_0^1 g(z) z^r \d{z} \\
+    &= \int_0^1 \tlrsum{g}{\alpha} (z-a)^n z^r \d{z} \\
+    &= \sum_{n=0}^\infty \tlrtrm{g}{n}{\alpha} \int_{-\alpha}^{1-\alpha} z'^n (z'+a)^r \d{z'} \\
+    &= \frac{1}{\Delta} \sum_{n=0}^{\infty} \tlrtrm{g}{n}{\alpha} \sum_{j=0}^{r} {r \choose j} \frac{\alpha^{r-j}}{n+j+1} z^{n+j+1} \big|_{\alpha}^{1-\alpha}
+\end{align*}
+
+\begin{align*}
+    \M(t) = 
+\end{align*}
+
+\subsubsection{Absolute}
+
+
+
+\begin{align*}
+    g(z)
+    &= \tlrsum{g}{\alpha} \sum_{i=0}^n {n \choose i} z^i (-\alpha)^{n-i} \\
+    &= \sum_{n=0}^{\infty} z^n \sum_{j=0}^{\infty} \tlrtrm{g}{n+j}{\alpha} {n+j \choose n} \alpha^j \\
+    &= \sum_{n=0}^{\infty} c_n z^n
+\end{align*}
+
+\begin{align*}
+    \mu'_r
+    &= \frac{1}{\Delta} \int_0^1 \sum_{n=0}^\infty c_n z^n \cdot z^r  \d{z} \\
+    &= \frac{1}{\Delta} \sum_{n=0}^\infty c_n \int_0^1 z^{n+r}  \d{z} \\
+    &= \frac{1}{\Delta} \sum_{n=0}^\infty \frac{c_n}{n+r+1} \\
+    &= \frac{1}{\Delta} \sum_{n=0}^\infty \frac{1}{n+r+1} \sum_{j=0}^\infty \tlrtrm{g}{n+j}{\alpha} {n+j \choose j} \alpha^j
+\end{align*}
+
+\[ \i(r) := \eu^{tz} z^r \]
+\[ \I(r) := \int \i(r) \d{z} \]
+\[ \I(0) = \int \eu^{tz} \d{z} = \frac{\eu^{tz}}{t} \]
+
+\begin{align*}
+    \I(r) \big|_0^1
+    &:= \int_{0}^{1} \eu^{tz} z^r \d{z} \\
+    &= z^r \frac{e^{tz}}{t} - \int_0^1 r z^{r-1} \frac{e^{tz}}{t} \d{z} \\
+    &= \frac{\i(r) \big|_0^1}{t}-\frac{r}{t} \I(r-1) \big|_0^1 \\
+    &= \frac{\i(r) \big|_0^1}{t}-\frac{r}{t} \left[ \frac{\i(r-1) \big|_0^1}{t}-\frac{r-1}{t} \I(r-2) \big|_0^1 \right] \\
+    &= \frac{\i(r) \big|_0^1}{t}-\frac{r}{t} \left[ \frac{\i(r-1) \big|_0^1}{t}-\frac{r-1}{t}  \left[ \frac{\i(r-2) \big|_0^1}{t}-\frac{r-2}{t} \left[ \frac{\i(r-3) \big|_0^1}{t}-\frac{r-3}{t} [\dots] \right] \right] \right] \\
+    &= \frac{\eu^{t}}{t}-\frac{r}{t} \left[ \frac{\eu^{t}}{t}-\frac{r-1}{t}  \left[ \frac{\eu^{t}}{t}-\frac{r-2}{t} \left[ \frac{\eu^{t}}{t}-\frac{r-3}{t} [\dots] \right] \right] \right] \\
+    &= \frac{e^{t}}{t} \left[ 1 - \frac{r}{t} \left[ 1 - \frac{r-1}{t} \left[ \dots \left[ 1 - \frac{2}{t} \left[ 1 - \frac{1}{t} \right] \right] \right] \right] \right]
+\end{align*}
+
+\begin{align*}
+    \M(t)
+    &= \int_{a}^{a+d} f(x) \eu^{tx} \d{x} \\
+    &= \int_{0}^{1} g(z) \eu^{a + t \cdot dz} d \d{z} \\
+    &= \frac{d \eu^a}{\Delta} \int_{0}^{1} \sum_{n=0}^{\infty} c_n z^n \eu^{t'z} \d{z} \\
+    &= \frac{d}{\Delta} \sum_{n=0}^{\infty} c_n \int_0^1 z^n \eu^{t'z} \d{z} \\
+    &= \frac{d}{\Delta} \sum_{n=0}^{\infty}  c_n \I(n) \big|_0^1 \\
+\end{align*}
+
+\subsubsection{Multinomial}
+\begin{align*}
+    \sin^k(\pi z^s)
+    &= \left( \sin{\theta} \right)^k = ( \theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \frac{\theta^7}{7!} + \dots )^k
+    &= \sum_{i1=0}^{\infty} {\theta \sum_{i_3=0}^{i1} {\frac{-\theta^3}{3!} \sum_{i_5=0}^{i3} {\frac{\theta^5}{5!} \dots } } }
+\end{align*}

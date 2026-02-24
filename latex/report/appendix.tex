@@ -1,0 +1,11 @@
+\section{Code}
+Code for this project is available in \hyperlink{github.com/BoiBhai/Sinusoidal-Distribution.git}{github.com/BoiBhai/Sinusoidal-Distribution.git}.
+
+\subsection{Choice of Optimizer}
+Following optimization techniques were tried and their drawbacks realized:
+\begin{enumerate}
+    \item \texttt{optim}'s \texttt{L-BFGS-B} method: sensitivity on initial choices of parameters.
+    \item \texttt{optim}'s \texttt{Nelder-Mead} method: unavailability of bounding boxes and the presence of unbounded solutions for certain problems such as $\N (0,1)$ fitting.
+\end{enumerate}
+
+\section{Proofs}
