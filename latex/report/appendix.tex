@@ -1,5 +1,7 @@
+\newpage\appendix
+{\LARGE \textbf{Appendix}}
 \section{Code}
-Code for this project is available in \hyperlink{github.com/BoiBhai/Sinusoidal-Distribution.git}{github.com/BoiBhai/Sinusoidal-Distribution.git}.
+All code for this project is available at \hyperlink{github.com/BoiBhai/Sinusoidal-Distribution.git}{github.com/BoiBhai/Sinusoidal-Distribution.git}.
 
 \subsection{Choice of Optimizer}
 Following optimization techniques were tried and their drawbacks realized:
@@ -8,4 +10,264 @@ Following optimization techniques were tried and their drawbacks realized:
     \item \texttt{optim}'s \texttt{Nelder-Mead} method: unavailability of bounding boxes and the presence of unbounded solutions for certain problems such as $\N (0,1)$ fitting.
 \end{enumerate}
 
-\section{Proofs}
+\section{Proofs and Remarks}
+\begin{thm}\label{thm:mode}
+        Mode of $\Sinu (s,k)$ is $2^{-1/s}$ and the modal density is $\frac{1}{A(s,k)}$.
+        \end{thm}
+        \begin{proof}
+            \begin{align*}
+                \frac{\d}{\d z} \psi(z; s,k) &= \frac{1}{A(s,k)} \frac{\d}{\d z} \sin^k(\pi z^s)\\
+                &= \frac{1}{A(s,k)} k \sin^{k-1}(\pi z^s) \cos(\pi z^s) \pi s z^{s-1}\\
+                &= 0 \iff \begin{cases}
+                    \sin(\pi z^s) =0 \implies z=0,1\\
+                    z^{s-1} = 0 \implies z=0\\
+                    \cos(\pi z^s) = 0 \implies \pi z^s = \frac{\pi}{2} \implies z = 2^{-1/s}
+                \end{cases}
+            \end{align*}
+            And modal density is \[\psi(2^{-1/s}; s,k) = \frac{1}{A(s,k)} \sin^k(\pi z^s)\bigg|_{z=2^{-1/s}} = \frac{1}{A(s,k)}\]\end{proof}
+
+
+\subsection{Preliminary mathematical properties} \label{subsec:app-prelim_math}
+\begin{rmk}[Physical Interpretation of the \sindist] \label{rmk:planet}
+First, note that both the radius of a planet and the angle subtended at its center are actually immaterial with regard to the intensity of crater activity it experiences when we assume that there is no decay in the intensity of crater activity through space, or atleast in the region of space incident normally upon the planet starting from its north-pole to its equator. In fact, what only matters is the tangential inclination of any location on the planet. To summarise, a location $r(z)$ parametrized as above will experience activity intensity proportional to $\sin(\phi)$, where $\phi$ is the angle its tangent subtends against the vertical.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{fig/2-planet}
+    \caption{An interpretation of the \sindist}
+    \label{fig:planet}
+\end{figure}
+
+Now, consider a planet whose every location $r(z)$ is inclined at an angle $\phi = \sin^{-1} [\sin^k(\pi z^s)]$ against the vertical. it is immediate that the activity intensity there would be $\sin^k(\pi z^s)$.
+
+The characterization of the shape of such a (smooth) radial curve that defines the planet is a problem in differential geometry. We briefly formulate its solution:
+\begin{gather*}
+    x(0) = r_0; \, y(0)=0\\
+    \phi(z) = \sin^{-1} [\sin^k(\pi z^s)]\\
+    \frac{\d y}{\d x} = \tan\left(\frac{\pi}{2}+\phi\right) \equiv - \cot \phi
+\end{gather*}
+\begin{gather*}
+    x = r(z) \cos (\pi z^s) \quad \implies \d x = \cos (\pi z^s) \d r - r \sin(\pi z^s) \pi s z^{s-1} \d z\\
+    y = r(z) \sin (\pi z^s) \quad \implies \d y = \sin(\pi z^s) \d r + r \cos(\pi z^s) \pi s z^{s-1} \d z
+\end{gather*}
+
+\begin{align*}
+    &\frac{\sin(\pi z^s) \d r + r \cos(\pi z^s) \pi s z^{s-1} \d z}{\cos (\pi z^s) \d r - r \sin(\pi z^s) \pi s z^{s-1} \d z} &&= - \cot \left[ \sin^{-1} \sin^k(\pi z^s) \right] \\
+    \implies& \frac{\d r}{r} &&= \tan\left[ \pi z^s - \sin^{-1}\sin^k(\pi z^s) \right] \cdot \pi s z^{s-1} \d z\\
+    & &&= \tan ( \theta - \sin^{-1}\sin^k \theta ) \d \theta\\
+    \implies& \ln r \big|_{r_0}^{r(z)} &&= \int_0^{\pi z^s} \tan(t - \sin^{-1}\sin^k t) \d t\\
+    \implies& r(z) &&= r_0 \exp\left(\int_0^{\pi z^s} \tan(t - \sin^{-1}\sin^k t) \d t\right)
+\end{align*}
+\end{rmk}
+
+\begin{comment}
+    \begin{proofof}{\autoref{thm:transform}}
+Consider the transformation $Y = \sin^2(X)$ for $X \in [0, \pi/2]$. The Jacobian of the transformation is:
+\begin{equation}
+\left| \frac{dx}{dy} \right| = \frac{1}{2\sin(x)\cos(x)} = \frac{1}{2y^{1/2}(1-y)^{1/2}}
+\end{equation}
+Substituting the density $f_X(x) \propto \sin^K(x) = y^{K/2}$:
+\begin{equation}
+f_Y(y) \propto y^{K/2} \cdot y^{-1/2}(1-y)^{-1/2} = y^{\frac{K+1}{2} - 1}(1-y)^{\frac{1}{2} - 1}
+\end{equation}
+This identifies $Y$ as $\text{Beta}\left(\frac{K+1}{2}, \frac{1}{2}\right)$. The full support $[0, \pi]$ is obtained by reflecting $X$ across $\pi/2$ with probability $0.5$ via the Bernoulli variable $S$.
+
+Let $U = \pi Z^S$. The Jacobian of the inverse transformation $z = (u/\pi)^{1/S}$ is $|dz/du| \propto u^{(1-S)/S}$. The density of $U$ is:
+\begin{equation}
+f_U(u) \propto f_Z((u/\pi)^{1/S}) \cdot u^{(1-S)/S} \propto (u^{(S-1)/S} \sin^K u) \cdot u^{(1-S)/S} = \sin^K u
+\end{equation}
+on $u \in [0, \pi]$. By the Beta-transformation theorem for $\sin^K u$, the variable $U$ is generated using $Y \sim \text{Beta}(\frac{K+1}{2}, \frac{1}{2})$. Reversing the power transformation $Z = (U/\pi)^{1/S}$ completes the proof.
+\end{proofof}
+\end{comment}
+
+
+\begin{proofof}{\autoref{thm:jtdens}}
+    \begin{align*}
+        f(x_1\dots x_n)
+        &= \frac{1}{d^n A^n(s,k)} \left[ \prod_{j=1}^n \sin \pi \left( \frac{x_j-a}{d}\right)^s \right]^k & \\
+        &=\frac{1}{d^n A^n(s,k)} \left[ \prod_{j=1}^n \sin \theta_j \right] ^k
+    \end{align*}
+    Now, the product term can be simplified as:
+    \begin{align*}
+        \prod_{j=1}^n \sin \theta_j
+        &= \prod_{j=1}^n \left(\frac{\e^{\i\theta_j} - \e^{-\i\theta_j}}{2}\right)\\
+        &= \frac{1}{2^n} \sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} \prod_{j=1}^n r_j \e^{\i r_j \theta_j} && [\because \text{\autoref{clm:induction}}]\\
+        &= \frac{1}{2^n} \sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} r \exp\left(\i \sum_{j=1}^n r_j \theta_j\right) &&  [\text{let $r:=\prod_{j=1}^n r_j$, the ``product parity"}]
+    \end{align*}
+    Plugging the expression back in:
+    \begin{align*}
+        f(x_1\dots x_n)
+        &= \frac{1}{A^n(s,k) 2^{nk} d^n } \left(\sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} r \exp\left[\i \sum_{j=1}^n r_j \theta_j\right] \right)^k
+    \end{align*}
+    The term $\sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} r \exp\left[\i \sum_{j=1}^n r_j \theta_j\right]$ is of particular interest. Consider $n$ points $z_j = \frac{x_j - a}{d} \quad [j=1(1)n]$ in $[0,1]$. Construct the angles $\theta_j = \pi z_j^s$ which lie in $[0, \pi]$. Choose a direction vector $\vec r = (r_1 \cdots r_n) \in \{\pm 1\}^n$, where every direction is $r_i =\pm 1$, i.e. either positive or negative. Consider the complex number (corresponding to every choice of a direction vector $\vec r$) created by consecutive angular displacements $\theta_j$ in the respective directions $r_j$. Such a complex number is further compensated in sign by the ``product parity" $r$ of that direction vector $\vec r$. If we sum all such complex numbers created by all possible choices of directions $\vec r$, then we get exactly the aforementioned expression.
+\end{proofof}
+
+\begin{clm}\label{clm:induction}
+        \begin{equation*}
+        \prod_{j=1}^n (\e^{\i \theta_j} - \e^{-\i \theta_j}) = \sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} \prod_{j=1}^n r_j \e^{\i r_j \theta_j}
+        \end{equation*}
+\end{clm}
+    \begin{proof}
+    We prove it by induction. For $n=2$:
+    \begin{align*}
+        \prod_{j=1}^2 (\e^{\i\theta_j} - \e^{-\i\theta_j}) &= \e^{\i(\theta_1 + \theta_2)} - \e^{\i(\theta_1 - \theta_2)} - \e^{\i(\theta_2 - \theta_1)} + \e^{-\i(\theta_1 + \theta_2)}\\
+        &= \sum_{r_1 \in \{1, -1\}}\sum_{r_2 \in \{1, -1\}} r_1r_2 \cdot \e^{\i r_1 \theta_1} e^{\i r_2 \theta_2}\\
+        &\equiv \sum_{r_1, r_2 = \pm 1} \prod_{j=1}^2 r_j \e^{\i r_j \theta_j}
+    \end{align*}
+    Induction hypothesis is $\forall \, n \geq 2$:
+    \begin{equation*}
+        P(n):\quad \prod_{j=1}^n (\e^{\i \theta_j} - \e^{-\i \theta_j}) = \sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} \prod_{j=1}^n r_j \e^{\i r_j \theta_j}
+    \end{equation*}
+    We prove it for $n+1$ case:
+    \begin{align*}
+        \prod_{j=1}^{n+1} (\e^{\i \theta_j} - \e^{-\i \theta_j})
+        &= \left( \sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} \prod_{j=1}^n r_j \e^{\i r_j \theta_j}\right) \cdot (\e^{\i \theta_{n+1}} - \e^{-\i \theta_{n+1}})\\
+        &= \sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} \prod_{j=1}^n r_j \cdot (\e^{\i \theta_{n+1}} - \e^{-\i \theta_{n+1}}) \e^{\i r_j \theta_j}\\
+        &= \sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} \prod_{j=1}^n r_j \cdot \sum_{r_{n+1} = \pm 1} r_{n+1} \e^{\i r_{n+1}\theta_{n+1}} \e^{\i r_j \theta_j}\\
+        &= \sum_{r_1=\pm1}\cdots \sum_{r_{n+1} = \pm 1} \prod_{j=1}^{n+1} r_j \e^{\i r_j \theta_j}
+    \end{align*}
+    Hence proved.
+    \end{proof}
+
+\begin{proofof}{\autoref{thm:norm_sym}}
+        \begin{align*}
+        \int_0^1 \sin^k(\pi t) \d t
+        & = \int_0^\pi \sin^k \theta \frac{\d \theta}{\pi}\\
+        &= \frac{2}{\pi} \int_0^{\frac{\pi}{2}} \sin^k \theta \d \theta\\
+        & = \frac{2}{\pi} \cdot 2^{k-1} \Beta \left(\frac{k+1}{2}, \frac{k+1}{2}\right) &\text{[\cite[Eq. 3.621 (1)]{Zwillinger}]}\\
+        & \equiv \frac{2^k}{\pi} \frac{\Gamma^2\left( \frac{k+1}{2} \right)}{\Gamma\left( k+1\right)}
+    \end{align*}
+    Alternatively,
+    \begin{align*}
+        \int_0^1 \sin^k(\pi t) \d t
+        &= 2 \int_0^{\frac{\pi}{2}} \sin^k \theta \frac{\d \theta}{\pi}\\
+        &\equiv \frac{2}{\pi} \int_0^{\frac{\pi}{2}} \sin^k \theta \cos^0 \theta \d \theta\\
+        & = \frac{2}{\pi} \cdot \frac{1}{2} \Beta \left(\frac{k+1}{2}, \frac{1}{2}\right) &\text{[\cite[Eq. 3.621 (5)]{Zwillinger}]}\\
+        &= \frac{1}{\pi} \frac{\Gamma\left(\frac{k+1}{2}\right) \Gamma\left(\frac{1}{2} \right)}{\Gamma\left(\frac{k}{2} + 1\right)}\\
+        &\equiv \frac{1}{\sqrt \pi} \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2} + 1\right)}
+    \end{align*}
+\end{proofof}
+
+\begin{proofof}{\autoref{thm:cdf_sym}}
+    \begin{align*}
+        \int_0^z \sin^k (\pi t) \d t &= \frac 1 \pi \int_0^{\pi z} \sin^k \theta \d \theta  \quad \hfill  \left[\theta := \pi t \implies \d t = \frac{\d \theta}{\pi}\right]\\
+        &= \frac{1}{\pi} \cdot \left. \begin{cases}
+            \frac{1}{2^{2n}} {2n \choose n} \theta + \frac{(-1)^n}{2^{2n-1}}\sum_{k=0}^{n-1} (-1)^k {2n \choose k} \frac{\sin[2(n-k)\theta]}{2(n-k)} & [k=2n]\\
+            \frac{1}{2^{2n}}(-1)^{n+1} \sum_{k=0}^n (-1)^k {2n+1 \choose k} \frac{\cos (2n+1-2k)\theta}{2n+1-2k} & [k=2n+1]
+        \end{cases} \right|_{\theta=0}^{\pi z} \\
+        & \hfill \text{[\cite[Eq. 2.513-1,2]{Zwillinger}]} \\
+        &= \frac{1}{\pi} \cdot \begin{cases}
+             \frac{1}{2^{2n}} {2n \choose n} \pi z + \frac{(-1)^n}{2^{2n-1}}\sum_{k=0}^{n-1} (-1)^k {2n \choose k} \frac{\sin [2\pi (n-k) z]}{2(n-k)} & [k=2n]\\
+        \frac{1}{2^{2n}}(-1)^n \sum_{k=0}^n (-1)^k {2n+1 \choose k} \frac{1 - \cos (2n+1-2k)\pi z}{2n+1-2k} & [k=2n+1]
+        \end{cases}
+    \end{align*}
+\end{proofof}
+
+\begin{proofof}{\autoref{thm:normality}}
+    \begin{align*}
+        f(x; d,k)
+        &= \frac{1}{d A(1, k)} \sin^k \left[ \pi \frac{x + \frac{d}{2}}{d} \right]\\
+        &= \frac{\sqrt \pi \cdot \Gamma(k+1)}{d \cdot \Gamma\left(\frac{k+1}{2}\right)} \cos^k \left( \frac{\pi x}{d} \right)  &&  [\text{\autoref{eq:area2}}]\\
+        &\sim \frac{\sqrt \pi \cdot k^{k + \frac{1}{2}} \e^{-k}}{d \cdot \left(\frac{k-1}{2}\right)^{k/2} \e^{- \frac{k-1}{2}}} \exp \left[ k \ln \cos\pfrac{\pi x}{d} \right]  &&  [\text{Stirling approximation for large $k$}]\\
+        &\sim \frac{\sqrt \pi \cdot k^{k + \frac{1}{2}} \pfrac{\e}{2}^{-\frac{k}{2}}}{d \cdot k^{k/2}} \exp \left[ k \ln \left( 1 - \frac{\pi^2 x^2}{2 d^2} + \O(d^{-4}) \right) \right]  &&  [\text{Maclaurin series in $k$ for $\cos$}]\\
+        &\sim \frac{\sqrt \pi}{d} k^\frac{k+1}{2} \pfrac{\e}{2}^{-\frac{k}{2}} \exp \left[- \frac{\pi^2 k x^2}{2 d^2} + k\O(d^{-4}) \right]  &&  [\text{Mercator series for $\ln$}]
+    \end{align*}
+    Let us set $d = \pi \sqrt k$, so that:
+    \begin{align*}
+        f(x; d,k)
+        &\sim \frac{1}{\sqrt \pi} k^k \pfrac{\e}{2}^{-\frac{k}{2}} \exp \left[- \frac{x^2}{2} + k\O(k^{-2}) \right]\\
+        &\propto \exp \left[- \frac{x^2}{2} + \O(k^{-1}) \right]\\
+        &\to \N(0,1) &&  \text{as $k \to \infty$}
+    \end{align*}
+\end{proofof}
+
+\subsection{Properties involving the GHGF} \label{subsec:app-prop_ghgf}
+\begin{rmk}[Additional notes on GHGFs] \label{rmk:ghgf}
+    For simplicity, all HGFs (e.g. Confluent HGF) expressed in this paper are represented in the Generalized form only.
+
+    Note than if $\Fhyp_j :\equiv \frac{\poch{a_1}[j] \cdots \poch{a_p}[j]}{\poch{b_1}[j] \cdots \poch{b_q}[j]} \frac{x^j}{j!}$ denotes the $j$\textsuperscript{th} term ($j = 0(1)\infty$) of the summation, so that $\Fhyp^p_q \equiv \sum_{j=0}^\infty \Fhyp_j$, then the ratio of consecutive terms of a GHgF defines its parameters and arguments:
+    \[ \frac{\Fhyp_{n+1}}{\Fhyp_n} \left[ \begin{matrix} a_1 \cdots a_p \\ b_1 \cdots b_1 \end{matrix}; z \right] = \frac{(a_1 + n) \cdots (a_p +n)}{(b_1 +n)\cdots(b_q +n)} \frac{z}{n+1} \] \label{eq:hgfratio}
+
+    In our paper, we will also need the Generalized Binomial expansion formula because $k$ may not be integer. Define from hereon ${r \choose k} = {\poch{r}[k] \over k!}$ as the generalized binomial coefficient. Then $(x+y)^r = \sum_{k=0}^\infty {r \choose k} x^{r-k} y^k$, which is the same series as the finite expansion obtained for $r \in \ZZ^+$, and otherwise an infinite series.
+\end{rmk}
+
+\begin{proofof}{\autoref{thm:kernelbin}}
+    \begin{align*}
+        \sin^k(\pi z^s) &= \sin^k \theta &&\text{[let $\theta:= \pi z^s$]}\\
+        &= \left( \frac{\e^{i\theta} - \e^{-\i\theta}}{2i} \right)^k  && \because \e^{\i \theta} = \cos \theta + \i \sin \theta\\
+        &= \frac{1}{(2\i)^k} \sum_{n=0}^\infty {k \choose n} \e^{\i \theta (k-n)} (-\e)^{-\i \theta n}\\
+        &= \frac{1}{(2\i)^k} \sum_{n=0}^\infty (-1)^n {k \choose n} \e^{\i \theta (k-2n)}\\
+        &\equiv \frac{1}{(2\i)^k} \sum_{n=0}^\infty (-1)^n {k \choose n} \e^{\i (k-2n) \pi z^s}
+    \end{align*}
+\end{proofof}
+
+\begin{proofof}{\autoref{thm:kernelhgf}}
+    For the first expression, we work with the Maclaurin series of $\sin \theta$ in $\theta$:
+    \begin{align*}
+        \sin^k(\pi u) &= (\pi u)^k \left[ \sum_{j=0}^{\infty} \frac{(-1)^j (\pi u)^{2j}}{(2j+1)!} \right]^k\\
+        &= (\pi u)^k \left[ \sum_{j=0}^\infty {\left( -\frac{\pi^2 u^2}{4} \right)^j \over \poch{\frac{3}{2}}[j] j! } \right]^k & \because \poch{\frac{3}{2}}[j] = {(2j+1)! \over 2^{2j} j!}\\
+        &= (\pi u)^k \left( \Fhyp^0_1 \left[ \begin{matrix} \cdot \\ \frac{3}{2} \end{matrix}; \, -\frac{\pi^2 u^2}{4}\right] \right)^k
+    \end{align*}
+
+    Alternatively, we construct the required HGF from the ratio of its terms, taking inspiration from \autoref{eq:hgfratio}. Note that if we were to express the infinite summation in \autoref{eq:kernelbin} as a HGF, then the ratio of its terms would give:
+    \[ \frac{\Fhyp_{n+1}}{\Fhyp_n} = (k+n) \frac{- \exp(-2 \i \pi z^s) }{n+1} \]
+    This should be equivalent to the following HGF:
+    \[ \Fhyp^1_0 \left[ \begin{matrix}k\\ \cdot\end{matrix};  -\exp(-2 \i \pi z^s) \right] \]
+    We find that a dual representation is possible, but not much reconciliation or interpretation to this duality is found as of yet.
+\end{proofof}
+
+\begin{proofof}{\autoref{thm:cfmgf}}
+    \begin{align*}
+        \varphi_Z(t)
+        &=\int_0^\infty\e^{\i tz} \psi(z; s,k) \d z = \frac{1}{A(s,k)} \int_0^\infty \e^{\i tz} \varsigma(z; s,k) \d z\\
+        &=\frac{1}{A(s,k)} \int_0^1 \e^{\i tz} \frac{1}{(2i)^k} \sum_{j=0}^{\infty} \binom{k}{j} (-1)^j \e^{\i\pi(k-2j)z^s} \d z && \text{[\autoref{eq:kernelbin}]}\\
+        &= \frac{1}{A(s,k) (2\i)^k} \sum_{j=0}^{\infty} (-1)^j \binom{k}{j} \int_{0}^{1} \e^{\i tz} \e^{\pi(k-2j)z^s} \d z \numberthis \label{eq:I1}
+    \end{align*}
+    We evaluate the inner integral $\mathcal I_1:=  \int_{0}^{1} \e^{\i tz} \e^{\pi(k-2j)z^s} \d z$ as follows:
+    \begin{align*}
+        \mathcal I_1 &= \int_{0}^{1} \left( \sum_{m=0}^{\infty} \frac{(\i t)^m z^m}{m!} \right) \e^{\i\pi(k-2j)z^s} \d z  &&  [\text{Maclaurin series for $\e^{\i tz}$ in $z$}]\\
+        &= \sum_{m=0}^{\infty} \frac{(\i t)^m}{m!} \int_{0}^{1} z^m \e^{\i\pi(k-2j)z^s} \d z  &&  \left[\text{Exchanging $\sum$ and $\int$}\right] \numberthis \label{eq:I2}
+    \end{align*}
+    We again evaluate the inner integral $\mathcal I_2:=  \int_{0}^{1} z^m \e^{\i\pi(k-2j)z^s} \d z$, by writing $\omega := \pi(k-2j)$ for convenience and substituting $u = z^s$, thereby $\implies z = u^{1/s}$ and $\d z = \frac{1}{s} u^{1/s - 1} \d u$:
+    \begin{align*}
+        \mathcal I_2 &= \int_{0}^{1} (u^{1/s})^m \e^{\i\omega u} \frac{1}{s} u^{1/s - 1} \d u\\
+        &= \frac{1}{s} \int_{0}^{1} u^{\frac{m+1}{s} - 1} \e^{i\omega u} \d u\\
+        &= \frac{1}{s} \frac{1}{\frac{m+1}{s}} \Fhyp^1_1\left[ \begin{matrix}\frac{m+1}{s}\\ \frac{m+1}{s} + 1 \end{matrix};\, \i \omega \right] && \text{\cite[13.2.E4, 13.4.E1]{NIST:DLMF}} \addtocounter{equation}{1} \tag\theequation \label{eq:I3}
+    \end{align*}
+    Hence, substituting the formulations \autoref{eq:I2}, \autoref{eq:I3} back into the parent equation \autoref{eq:I1}, we have --
+    \begin{equation*}
+        \varphi_Z(t) = \frac{1}{A(s,k) (2\i)^k } \sum_{j=0}^{\infty} (-1)^j \binom{k}{j} \sum_{m=0}^{\infty} \frac{(\i t)^m}{m!(m+1)} \Fhyp^1_1\left[ \begin{matrix}\frac{m+1}{s}\\ \frac{m+1}{s} + 1 \end{matrix};\, \i\pi(k-2j) \right]
+    \end{equation*}
+    which completes the proof.
+\end{proofof}
+
+\begin{proofof}{\autoref{thm:moments}}
+Since it is known that $E[Z^r] = \frac{1}{\i^r} \left[ \frac{\d^r}{\d t^r} \varphi_Z(t) \right]_{t=0}$, by $r^\th$ order differentiation of the Characteristic Function in \autoref{eq:cf}, we obtain:
+\begin{align*}
+    \upmu_r (s,k) &= \frac{1}{\i^r} \cdot \frac{1}{A(s,k) (2\i)^k} \sum_{j=0}^{\infty} \frac{(-1)^j \binom{k}{j} (\i^r r!)}{(r+1)!} \Fhyp^1_1 \left[ \begin{matrix}
+        \frac{r+1}{s} \\ \frac{r+1}{s} + 1
+    \end{matrix}; \i\pi(k-2j) \right]\\
+    & \hfill \left[\because \frac{\d^r}{\d t^r} (\i t)^m \Bigg|_{t=0} = \begin{cases} \i^r r! & \text{if } m = r \\ 0 & \text{o.w.}\end{cases} \right]
+\end{align*}
+
+This proves the first expression. Alternatively, by direct integration of the PDF:
+    \begin{align*}
+        \int z^r \sin^k (\pi z^s) \d z
+        &= \int z^r \frac{1}{(2\i)^k} \sum_{j=0}^\infty (-1)^j {k \choose j} \e^{\i (k-2j) \pi z^s} \d z && [\because \text{\autoref{eq:kernelbin}}]\\
+        &= \frac{1}{(2\i)^k} \int \sum_{j=0}^\infty  (-1)^j {k \choose j} \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi z^s]^n}{n!} z^r \d z && [\text{Maclaurin series for $\e^\theta$ in $\theta$}]\\
+        &= \frac{1}{(2\i)^k} \sum_{j=0}^\infty (-1)^j {k \choose j} \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi]^n }{n!} \int z^{ns+r} \d z && \left[\text{Substitute $\int$ and $\sum$}\right] \numberthis \label{eq:momint}
+    \end{align*}
+    \begin{align*}
+        \therefore \upmu_r(s,k) &= \frac{1}{A(s,k)}\int_0^1 z^r \sin^k (\pi z^s) \d z = \frac{1}{A(s,k) (2\i)^k} \sum_{j=0}^\infty (-1)^j {k \choose j} \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi]^n}{n! (ns+r+1)}
+    \end{align*}
+    Note that the second summation is precisely the term $\Fhyp_1^1$.
+\end{proofof}
+
+\begin{proofof}{\autoref{thm:cdf}}
+This follows from the calculation of moments in \autoref{thm:moments}:
+    \begin{align*}
+        \Psi(z; s, k) &= \frac{1}{A(s,k)} \int_0^z \sin^k(\pi t^s) \d t\\
+        &= \frac{1}{A(s,k)} \frac{1}{(2\i)^k} \sum_{j=0}^\infty {k \choose j} (-1)^j \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi]^n }{n!} \int_0^z t^{ns} \d t  &&  [\because \text{\autoref{eq:momint}, putting $r=0$}]\\
+        &= \frac{1}{A(s,k) (2\i)^k} \sum_{j=0}^\infty (-1)^j {k \choose j} \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi]^n}{n! (ns+1)} z^{ns+1}
+    \end{align*}
+\end{proofof}

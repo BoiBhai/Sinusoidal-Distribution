@@ -1,5 +1,5 @@
 \usepackage[textwidth=6.5in, textheight=9.0in]{geometry}
-\usepackage{pdflscape}
+%\usepackage{pdflscape}
 \usepackage{setspace}
 \onehalfspacing % This is the standard command for 1.5 line spacing
 \usepackage{graphicx, wrapfig, subcaption}
@@ -10,18 +10,20 @@
 \usepackage{xcolor, hyperref}
 \usepackage{xspace}
 \usepackage{xargs}
-\usepackage{listings}
 \usepackage{enumitem}
 \usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage[bottom]{footmisc}
-\usepackage{appendix}
+
 \usepackage[
     backend=biber,
-    style=authoryear
+    style=ext-authoryear
 ]{biblatex}
 \usepackage{tocbibind}
-\usepackage{tabularx}
 \addbibresource{ref.bib}
+\usepackage{appendix}
+
+\usepackage{comment}
 
 \hypersetup{
     colorlinks = true,
@@ -31,67 +33,25 @@
     urlcolor=red   
 }
 
-\lstset{language=R}
-\lstdefinestyle{mystyle}{  
-    commentstyle=\color{green},
-    keywordstyle=\color{blue},
-    numberstyle=\tiny\color{gray},
-    stringstyle=\color{purple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
-\lstset{style=mystyle}
-
 \theoremstyle{plain}
-\newtheorem{thm}{Theorem}
+\newtheorem{thm}{Theorem}[section]
+\newcommand{\thmautorefname}{Theorem}
+\newtheorem{clm}{Claim}[section]
+\newcommand{\clmautorefname}{Claim}
 \theoremstyle{remark}
-\newtheorem{rmk}{Remark}
+\newtheorem{rmk}{Remark}[section]
+\newcommand{\rmkautorefname}{Remark}
 \theoremstyle{definition}
 \newtheorem{dfn}{Definition}
 
+
+\NewDocumentEnvironment{proofof}{m}{
+  \par\noindent
+  \textbf{Proof of #1.}\enspace
+}{
+  \qed\par\medskip
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand {\Pr} {\mathcal P}
-
-\newcommand {\E} {\mathbb E}
-\newcommand {\V} {\mathbb V}
-\newcommand{\Sk}{\mathrm{Sk}}
-\newcommand{\follows}{\sim}
-
-\newcommand{\as}{\text{a.s.}}
-
-\renewcommand{\d}{\mathrm d}
-
-\newcommand {\N} {\mathcal{N}}
-\newcommand{\U}{\mathcal U}
-
-\newcommand{\utilde}[1]{\underset{\sim}{#1}}
-
-\newcommand{\e}{\mathrm e}
-\newcommand{\RR} {\mathbb R}
-\newcommand{\ZZ}{\mathbb Z}
-\newcommand{\eu}{\e}
-\newcommand{\Beta}{\mathrm B}
-\newcommand{\Ber}{\mathrm{Ber}}
-
-\newcommand{\Sinu}{\mathrm{Sinu}}
-\newcommand{\sindist}{\emph{Sinusoidal distribution}}
-
-\newcommandx{\Fh}[2][1=p, 2=q]{\mathrm F^{#1}_{#2}} % generalized hypergeometric function
-%\newcommandx{\Fsum}[4][1=0, 2=0, 4=x]{{}_{#1}{\mathrm F}_{#2} $\left[ \begin{matrix} #3 \end{matrix}; #4 \right]$}
-\DeclareMathOperator{\Fhyp}{F}
-\newcommandx{\poch}[2][2=n]{\left( #1 \right)^{\overline #2}}
-
-\renewcommand{\th}{\text{th}}
-
-\newcommand{\numberthis}{\addtocounter{equation}{1}\tag{\theequation}}
-\renewcommand{\i}{\mathrm{i}}
+\usepackage{macros2}

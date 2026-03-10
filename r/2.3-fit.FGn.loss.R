@@ -42,11 +42,16 @@ fit.FGn.loss = function(f_family, Gn, loss, knots=knots(Gn)){
 }
 
 
-fit.FGn.chisq = function(f_family, Gn, knots) fit.FGn.loss(f_family, Gn, loss=chisq_dist, knots)
 fit.FGn.L2 = function(f_family, Gn, knots) fit.FGn.loss(f_family, Gn, loss=L2_FGn_dist, knots)
 
 #############################################################################
 # CALLS
 #############################################################################
 
-fit.sinuGn.L2 = function(Gn, knots) fit.FGn.L2(family_sinustd, Gn, knots)
+fit.sinuGn.L2 = function(Gn, knots=knots(Gn)) fit.FGn.L2(family_sinustd, Gn, knots)
+
+
+data1 = rnorm(1000)
+ecdf1 = ecdf(data1)
+knots(ecdf1)
+fit.sinuGn.L2(ecdf1)

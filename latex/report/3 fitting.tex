@@ -1,3 +1,4 @@
+% !TeX root = report.tex
 \newcommand{\Bin}{\text{Bin}}
 \newcommand{\Poi}{\text{Poi}}
 \newcommand{\Geo}{\text{Geo}}
@@ -6,135 +7,81 @@
 
 
 \section{Fitting and Estimation}
-This section deals with fitting the \sindist{} over various forms of statistical objects -- MSMs (moment summary measures), PDFs, CDFs and ECDFs.
+This section discusses fitting the \sindist{} over 2 kinds of statistical objects -- MSMs (moment summary measures), and PDFs, in an attempt to demonstrate its flexibility.
 
 It is to be noted that since the \sindist{} is a location-scale family, investigating its fitting flexibility over standardized/normalized statistical objects is good enough, since it can always adapt to location-scale transformed analogues of the aforesaid objects.
 
-Further, wherever numerical optimization is required, for finiteness of computation, we operate under the following parametric constraints whilst choosing the best candidate \sindist{}, $\Sinu(a,d,s,k)$:
-\begin{enumerate}
-    \item $a \in [-10^3, 10^3]$
-    \item $d \in [10^{-2}, \, 2\times10^3]$
-    \item $s \in [10^{-2}, 10^2]$
-    \item $k \in [10^{-2}, 10^2]$
-\end{enumerate}
-an utilize the \texttt{L-BFGS-B} method of the \texttt{optim} function found in the \texttt{R} programming language.
-
 \subsection{MLE, Score equations}
-\begin{align*}
+The score equations for maximum likelihood estimation of the parameters of the \sindist{} $\Sinu(a,d,s,k)$ are not analytically solvable, as we detail below. Consider $X_i \iidsim \Sinu(a,d,s,k) \quad \forall i=1(1)n$. The joint log-likelihood is:
+\begin{equation*}
     l(a,d,s,k; \utilde x)
-    &= \ln \left[ {1 \over d^nA^n(s,k)} \prod_{i=1}^n \sin^k \pi \left( x_i-a \over d \right)^s \right]\\
-    &= -n\ln(d)-n\ln(A(s,k)) + k\sum_{i=1}^n \ln \sin \pi\left( x_i-a \over d \right)^s
-\end{align*}
-
-Preliminary notation:
+    = -n\ln(d)-n\ln(A(s,k)) + k\sum_{i=1}^n \ln \sin \pi\left( x_i-a \over d \right)^s
+\end{equation*}
+Denote $z_i = \frac{x_i -a}{d}$. Some preliminary calculation:
 \begin{align*}
-    A(s,k) &:= \int_0^1\sin^k(\pi z^s) \ \d z\\
     \nabla_s A &= \pi k \int_0^1 \sin^{k-1}(\pi z^s) \cos(\pi z^s) (\ln z) z^s \ \d z\\
     \nabla_k A &= \int_0^1 \sin^k(\pi z^s) \ln \sin(\pi z^s) \ \d z
 \end{align*}
-The score equations are:
+Gives us the score equations:
 \begin{align*}
-    \nabla_a \ell = 0 &\iff \sum_{i=1}^n z_i^{s-1} \cot(\pi z_i^s) = 0 \\
-    \nabla_d \ell = 0 & \iff \pi sk \sum_{i=1}^n z_i^s \cot(\pi z_i^s) = -n \\
-    \nabla_s \ell = 0 & \iff  \pi k \sum_{i=1}^n {z^s \cos \pi z^s \ln z  \over \sin \pi z^s} = n {\nabla_s A \over A}\\
-    \nabla_k \ell = 0 &\iff \sum_{i=1}^n \ln \sin \pi z_i^s = n{\nabla_k A \over A}
+    &\nabla_a \ell = 0 \iff \sum_{i=1}^n z_i^{s-1} \cot(\pi z_i^s) = 0;  && \nabla_d \ell = 0 \iff \pi sk \sum_{i=1}^n z_i^s \cot(\pi z_i^s) = -n \\
+    &\nabla_s \ell = 0 \iff  \pi k \sum_{i=1}^n {z^s \cos \pi z^s \ln z  \over \sin \pi z^s} = n {\nabla_s A \over A};  &&  \nabla_k \ell = 0 \iff \sum_{i=1}^n \ln \sin \pi z_i^s = n{\nabla_k A \over A}
 \end{align*}
-which may not be solved analytically. We can try figuring out computationally their simultaneous solutions, or we may scrap this entire approach and try maximizing the likelihood computationally through other means.
+which may not be solved analytically. It may be wise to abandon this approach in favour of maximizing the joint likelihood through numerical computation means.
 
 \subsection{MSM on MSM}
-We tried fitting the Moment Summary Measures (MSMs) of the standard $\Sinu(s,k)$ family over different target MSMs using a specific but arbitrary choice of the loss function: $L(\vec m , \vec m_{t}) = (\gamma-\gamma_t)^2 + (\kappa - \kappa_t)^2$. Note that since $\Sinu(a,d,s,k)$ is a location-scale family in $(a,d)$, implying that its first two moments can be freely adjusted by modifying $(a,d)$ alone, it was sufficient to test for the skewness-kurtosis adaptability of the distribution -- hence our choice of the standard $\Sinu(s,k)$ family. The results (minimized loss and the choice of parameters) are provided in \autoref{tab:fitpdf}.
-\begin{table}[h!]
-    \centering
-    \begin{tabularx}{\textwidth}{X|X|X}
-        \toprule
-        Target Density & Hellinger (a,d,s,k) & \texorpdfstring{$L^2$}{L2} (a,d,s,k)\\
-        \midrule
-        $\N(0,1)$ & 0.00004277289 {\Tiny (-20.542932, 34.985498, 1.304535, 100)} & \\
-        $\mathrm{Lognormal}(0,1)$ & 0.000936801 (0.02827762, 1000, 0.08566970, 35.78972) & \\
-        $\mathrm{Skew}\N_{\alpha=1} (0,1)$ & 2.189446e-05 (-7.2216216, 24.8516728, 0.5936823, 100) &\\
-        \hline
-        $\mathrm{Logistic}(0,1)$ & 0.003149183 (-80.275639, 102.222513, 2.882431, 100) & \\
-        $\mathrm{Exp}(1)$ & 0.008101119 (0.0005708485, 6.5585684475, 0.0621246472, 1.6766166256) & \\
-        $\mathrm{DE}(0,1)$ & 0.01599712 (-8.895071, 16.872288, 1.085768, 15.608238) & \\
-        \hline
-        $\Gamma(0.1,1)$ & Improper, like below. WHY! & \\
-        $\Gamma(100,1)$ & WHY! 1 (1.468279e-07, 1.000001e-01, 1.000000e-01, 1.000000e-01) & \\
-        $\Beta(1,1)$ & 0.0030202, (-0.0007780335, 1.0012066335, 0.1004892336, 0.12190192670) & \\
-        \hline
-        $\mathrm{Cauchy}(0,1)$ & 0.06878475 (-126.211809, 149.303341, 4.141315, 100) & \\
-        \hline
-        $\chi^2(1)$ & BAD LIKE GAMMA! & \\
-        $\chi^2(10)$ & 5.791378e-06 (-0.3201950, 97.1337699, 0.2815837, 22.0271292) & \\
-        $\mathrm{t}_1(0,1)$ & 0.06878477 (-126.114092, 149.207078, 4.138119, 100) & \\
-        $\mathrm{t}_{10}(0,1)$ & INTEGRAL DIVERGENT & \\
-        $\mathrm{F}(1,1)$ & BAD OUTPUT & \\
-        \bottomrule
-    \end{tabularx}
-    \caption{Some common target densities and the best candidate \sindist{}}
-    \label{tab:fitpdf}
-\end{table}
+Given a set of 4 moment summary measures (MSMs), we focus on the problem of fitting an appropriate \sindist{} to them, so that its MSMs match the specifications as closely as possible. Because $\Sinu(a,d,s,k)$ is a location-scale family in $(a,d)$, implying that its first two MSMs (mean \& variance) can be freely adjusted by modifying $(a,d)$ alone, it should be sufficient to investigate the skewness-kurtosis adaptability of the distribution through its parameters $s$ and $k$. Hence, choosing the Standard $\Sinu(s,k)$ family, we analyze its skewness-kurtosis cover in \autoref{fig:skewkurtcover} over a finite grid of parameter choices: $s,k = 0.05\,(0.05)\, 6$. The plot is colorized to indicate the choice of parameters as denoted in the legend aside.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/2-skewkurtcover}
+    \caption{Skewness-Kurtosis cover of the \sindist.}
+    \label{fig:skewkurtcover}
+\end{figure}
+
+At a later stage, we will assess the prospect of optimizing some distance metric over MSMs and open the path to numerical optimization.
 
 
 \subsection{PDF on PDF}
-We tried fitting the PDF of $\Sinu(a,d,s,k)$ over different target PDFs (standard location-scale members only) using numerical optimization and 2 different choices of the loss function (Hellinger distance and $L^2$ distance). The results (minimized distance with the choice of parameters) are provided in \autoref{tab:fitpdf}.
+We tried fitting the PDF of $\Sinu(a,d,s,k)$ over different target PDFs (standard location-scale members only) using numerical optimization (\texttt{L-BFGS-B} method of the \texttt{optim} function found in the \texttt{R} programming language) and the loss function as Hellinger distance. For finiteness of computation, we operate under the following parametric constraints whilst choosing the best candidate $\Sinu(a,d,s,k)$: $a \in [-10^3, 10^3]$, $d \in [10^{-2}, \, 2\times10^3]$, $s \in [10^{-2}, 10^2]$ and $k \in [10^{-2}, 10^2]$.
+The results (minimized Hellinger distance with the choice of parameters) are provided in \autoref{tab:fitpdf}.
 \begin{table}[h!]
     \centering
-    \begin{tabularx}{\textwidth}{X|X|X}
+    \begin{tabularx}{\textwidth}{X|c}
         \toprule
-        Target Density & Hellinger (a,d,s,k) & \texorpdfstring{$L^2$}{L2} (a,d,s,k)\\
+        Target Density & Hellinger distance (Choice of Parameters $a,d,s,k$)\\
         \midrule
-        $\N(0,1)$ & 0.00004277289 {\Tiny (-20.542932, 34.985498, 1.304535, 100)} & \\
-        $\mathrm{Lognormal}(0,1)$ & 0.000936801 (0.02827762, 1000, 0.08566970, 35.78972) & \\
-        $\mathrm{Skew}\N_{\alpha=1} (0,1)$ & 2.189446e-05 (-7.2216216, 24.8516728, 0.5936823, 100) &\\
+        $\N(0,1)$ & 0.00004277289 (-20.542932, 34.985498, 1.304535, 100)\\
+        $\mathrm{Lognormal}(0,1)$ & 0.000936801 (0.02827762, 1000, 0.08566970, 35.78972) \\
+        $\mathrm{Skew}\N_{\alpha=1} (0,1)$ & 2.189446e-05 (-7.2216216, 24.8516728, 0.5936823, 100) \\
         \hline
-        $\mathrm{Logistic}(0,1)$ & 0.003149183 (-80.275639, 102.222513, 2.882431, 100) & \\
-        $\mathrm{Exp}(1)$ & 0.008101119 (0.0005708485, 6.5585684475, 0.0621246472, 1.6766166256) & \\
-        $\mathrm{DE}(0,1)$ & 0.01599712 (-8.895071, 16.872288, 1.085768, 15.608238) & \\
+        $\mathrm{Logistic}(0,1)$ & 0.003149183 (-80.275639, 102.222513, 2.882431, 100) \\
+        $\mathrm{Exp}(1)$ & 0.008101119 (0.0005708485, 6.5585684475, 0.0621246472, 1.6766166256) \\
+        $\mathrm{DE}(0,1)$ & 0.01599712 (-8.895071, 16.872288, 1.085768, 15.608238) \\
         \hline
-        $\Gamma(0.1,1)$ & Improper, like below. WHY! & \\
-        $\Gamma(100,1)$ & WHY! 1 (1.468279e-07, 1.000001e-01, 1.000000e-01, 1.000000e-01) & \\
-        $\Beta(1,1)$ & 0.0030202, (-0.0007780335, 1.0012066335, 0.1004892336, 0.12190192670) & \\
+        $\Gamma(0.1,1)$ & Poor fit \\
+        $\Gamma(100,1)$ & Poor fit \\
+        $\Beta(1,1)$ & 0.0030202, (-0.0007780335, 1.0012066335, 0.1004892336, 0.12190192670) \\
         \hline
-        $\mathrm{Cauchy}(0,1)$ & 0.06878475 (-126.211809, 149.303341, 4.141315, 100) & \\
+        $\mathrm{Cauchy}(0,1)$ & 0.06878475 (-126.211809, 149.303341, 4.141315, 100) \\
         \hline
-        $\chi^2(1)$ & BAD LIKE GAMMA! & \\
-        $\chi^2(10)$ & 5.791378e-06 (-0.3201950, 97.1337699, 0.2815837, 22.0271292) & \\
-        $\mathrm{t}_1(0,1)$ & 0.06878477 (-126.114092, 149.207078, 4.138119, 100) & \\
-        $\mathrm{t}_{10}(0,1)$ & INTEGRAL DIVERGENT & \\
-        $\mathrm{F}(1,1)$ & BAD OUTPUT & \\
+        $\chi^2(1)$ & Poor fit \\
+        $\chi^2(10)$ & 5.791378e-06 (-0.3201950, 97.1337699, 0.2815837, 22.0271292) \\
+        $\mathrm{t}_1(0,1)$ & 0.06878477 (-126.114092, 149.207078, 4.138119, 100) \\
+        $\mathrm{t}_{10}(0,1)$ & Fit failed \\
+        $\mathrm{F}(1,1)$ & Poor fit \\
         \bottomrule
     \end{tabularx}
     \caption{Some common target densities and the best candidate \sindist{}}
     \label{tab:fitpdf}
 \end{table}
 
-\subsection{CDF on CDF}
-We tried fitting the CDF of $\Sinu(a,d,s,k)$ over different target CDFs (standard location-scale members only) using numerical optimization and 2 different choices of the loss function. The results (minimized distance with the choice of parameters) are provided in \autoref{tab:fitcdf}.
-\begin{table}[h!]
-    \centering
-    \begin{tabularx}{\textwidth}{X|X|X}
-        \toprule
-        Target CDF & Hellinger (a,d,s,k) & \texorpdfstring{$L^2$}{L2} (a,d,s,k)\\
-        \midrule
-        $\Bin(10,0.1)$ & & \\
-        $\Bin(10,0.9)$ & & \\
-        $\Poi(1)$ & & \\
-        $\Poi(5)$ & & \\
-        $\Geo(0.1)$ & & \\
-        $\Geo(0.9)$ & & \\
-        $\NB(10,0.1)$ & & \\
-        $\NB(10,0.9)$ & & \\
-        $\Hyp(20,16,3)$ & & \\
-        $\Hyp(20,6,4)$ & & \\
-        \bottomrule
-    \end{tabularx}
-    \caption{Some common target CDFs and the best candidate \sindist{}}
-    \label{tab:fitcdf}
-\end{table}
+The technical and theoretical underpinnings behind poor or failed fits will be the matter of future investigation.
 
+\begin{comment}
 \subsection{Quantile-Density Based Metrics}
 Following \cite{staudte2017dqf}, we construct the notion of Divergences based on the density-quantile function $dq(p) = f(F^{-1}(p)) \quad \forall p \in [0,1]$. The advantages of calculating divergence metrics on this transformed domain is that divergences become location-scale invariant and invariant to ``flat'' regions in the CDF.
+
 
 \section{Divergence Density/Potential}
 For some target density $g$, if $D_g(f) = \int_{x \in \mathcal X} L(f(x),g(x)) \d x$ denotes the divergence of candidate density $f$ from target $g$, then define:
@@ -151,3 +98,4 @@ The process of fitting a candidate distribution over a given target then becomes
 We can conclude that the \sindist{} is indeed more flexible if for different target densities, which may even come from data, it can minimize the divergence better than conventional distributions. At the same time, excess efficiency implies lack of robustness in the presence of contamination. In such cases, we justify the utility of the \sindist{} by saying that it fits to data more flexibly than other distributions, and transparently displays the nature of the underlying divergence metric without interference from the rigidity of its shape.
 
 An apparent benefit of the Divergence Potential over the standard choice of Influence Function in Robust Statistics literature is that it provides more information about the divergence functional than possible through incorporation of a degenerate contamination and subsequent analysis of the limit for an infinitesimal perturbation of that contamination.
+\end{comment}

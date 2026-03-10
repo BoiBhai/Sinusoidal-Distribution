@@ -1,14 +1,27 @@
-\section{Application}
+\section{Future Plan}
+In the future, we aim to improve our work in the following departments:
 
-\subsection{Analytical approximations}
+\subsection{Analytical replication}
+We want to investigate parametric limiting cases of the \sindist{} and assess the strength of such convergences. For example, it would be a task to investigate if the \sindist{} converges uniformly to the Normal, Beta, Gamma, etc. distributions in limits of its parameters. Moreover, we would like to investigate what are the families that the \sindist{} cannot replicate -- for example, we know through trials that it struggles with leptokurtic shapes. Investigating the theoretical skewness-kurtosis cover of the distribution will also be a priority.
 
-\subsection{Empirical approximations}
-\subsubsection{Proxy distribution for unsimplifiable test-statistic distributions}
+\subsection{Analytical expressions}
+We want to simplify the analytical expressions, such as the CDF, normalizing constant, moments and the characteristic function, of the \sindist. For example, we aim to reduce the frequent occurrence of complicated `double summations' in its analytical expressions by searching for further simplifications.
 
-\subsubsection{Poorly shaped datasets}
+\subsection{Fitting strategies}
+Firstly, we aim to devise algorithms for fitting the \sindist{} to more statistical objects, viz. sample observations (i.e. formulating a numerical algorithm for maximum likelihood estimation), MSMs, PDFs (formulating and testing algorithms for more divergence metrics), CDFs, and ECDFs. Next, we will compare their efficacy based on a common scheme. Of particular interest in this domain will be location-scale invariant divergences, based on Density-Quantile functions and otherwise.
 
-\subsection{Naive or Flexible Bayesian Prior}
+Following this, we wish to investigate the salient features of different divergences/loss functions by how they allow the \sindist{} to be fitted over different statistical objects. In particular, we would like to understand the influence of the tuning parameter $\alpha$ on the DPD metric, with the ambition of suggesting novel ways of estimating the same, which happens to be a long-standing research question (\cite{basak2021dpd}).
+
+Our argument for the characterization of divergences and their associated (hyper-)parameters by the act of minimizing such divergences during fitting a distribution is that given a flexible distribution (over some variety of shapes), an intuitive way to visualize the impact of different divergence metrics is to see how they influence the fit of the distribution in the minimum divergence estimation approach.
+
+\subsection{Test statistic distribution modelling}
+We want to assess the usage of the distribution to model the distributions of test statistics that do not follow closed form distributions. Because of its highly flexible nature, the \sindist{} is expected to serve as a good proxy distribution for complicated test statistics, against which inference can be done accurately, thereby eliminating the need for elaborate tables in all practical purposes.
+
+\subsection{Unconventional datasets}
+We wish to employ the flexibility of its shape in the analysis of unconventional, skewed or platykurtic, datasets. We hope for applications in the domains of survival analysis and economics, specifically.
+
+\subsection{Flexible Bayesian Prior}
+We want to assess if the additional flexibility of its skewness and kurtosis figures improves the accuracy of Bayesian estimation, by employing it as a highly flexible Bayes prior. We will also assess the computational costs that come with the estimation of 2 additional parameters, especially when they rely on numerical computation, and whether this is an acceptable compromise.
 
 \subsection{Flexible Activation Function for NNs}
-Check if sinu CDF activation function can match a tanh/sigmoid activation function, and how good in the 0,1 range. if support is increased then does it do better?
-
+We have already seen in \autoref{tab:fitpdf} that the \sindist{} can take the shape of a Logistic (0,1) distribution with great accuracy. Given the closeness of its CDF to the sigmoid activation function, and the additional ability to take on other shapes as well, we aim to construct a neural network endowed with a flexible skewness-kurtosis activation function. This learnable-parameter NN will require deriving custom back-propagation equations for parameter estimation. We will also assess the additional cost of training such a neural network and the benefits associated with the same.
