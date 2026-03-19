@@ -1,0 +1,44 @@
+\contentsline {section}{Contents}{1}{section*.1}%
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}The Sinusoidal Distribution}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Shape Properties}{4}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Preliminary Mathematical Properties}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Physical Interpretation}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Transformation}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Concentration Inequalities}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Normalizing constant for the symmetric case}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Incomplete integral of the kernel for the Symmetric case}{8}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Limiting to Normality}{8}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Properties involving the Generalized Hypergeometric Function}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Kernel}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}CF and MGF}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Moments}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}CDF}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Normalizing constant}{10}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Fitting}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}MLE, Score equations}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}MSM on MSM}{11}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}PDF on PDF}{11}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}CDF on CDF}{12}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}CDF on ECDF}{12}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}QF on QF}{12}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}QF on EQF}{12}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}DQF on DQF}{12}{subsection.5.8}%
+\contentsline {section}{\numberline {6}On the theory of fitting}{12}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Quantile-Density Based Metrics}{12}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Divergence Density/Potential}{13}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}DPD and contamination}{13}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Calculus of variations}{14}{subsubsection.6.2.2}%
+\contentsline {section}{\numberline {7}Future Plan}{14}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Analytical replication}{15}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Analytical expressions}{15}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Fitting strategies}{15}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Test statistic distribution modelling}{15}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Unconventional datasets}{16}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Flexible Bayesian Prior}{16}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Flexible Activation Function for NNs}{16}{subsection.7.7}%
+\contentsline {section}{\numberline {A}Code}{18}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Choice of Optimizer}{18}{subsection.A.1}%
+\contentsline {section}{\numberline {B}Proofs and Remarks}{18}{appendix.B}%
+\contentsline {subsection}{\numberline {B.1}Preliminary mathematical properties}{18}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Properties involving the GHGF}{23}{subsection.B.2}%

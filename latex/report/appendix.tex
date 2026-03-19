@@ -14,17 +14,18 @@ Following optimization techniques were tried and their drawbacks realized:
 \begin{thm}\label{thm:mode}
         Mode of $\Sinu (s,k)$ is $2^{-1/s}$ and the modal density is $\frac{1}{A(s,k)}$.
         \end{thm}
-        \begin{proof}
-            \begin{align*}
-                \frac{\d}{\d z} \psi(z; s,k) &= \frac{1}{A(s,k)} \frac{\d}{\d z} \sin^k(\pi z^s)\\
-                &= \frac{1}{A(s,k)} k \sin^{k-1}(\pi z^s) \cos(\pi z^s) \pi s z^{s-1}\\
-                &= 0 \iff \begin{cases}
-                    \sin(\pi z^s) =0 \implies z=0,1\\
-                    z^{s-1} = 0 \implies z=0\\
-                    \cos(\pi z^s) = 0 \implies \pi z^s = \frac{\pi}{2} \implies z = 2^{-1/s}
-                \end{cases}
-            \end{align*}
-            And modal density is \[\psi(2^{-1/s}; s,k) = \frac{1}{A(s,k)} \sin^k(\pi z^s)\bigg|_{z=2^{-1/s}} = \frac{1}{A(s,k)}\]\end{proof}
+\begin{proof}
+	\begin{align*}
+		\frac{\d}{\d z} \psi(z; s,k) &= \frac{1}{A(s,k)} \frac{\d}{\d z} \sin^k(\pi z^s)\\
+		&= \frac{1}{A(s,k)} k \sin^{k-1}(\pi z^s) \cos(\pi z^s) \pi s z^{s-1}\\
+		&= 0 \iff \begin{cases}
+			\sin(\pi z^s) =0 \implies z=0,1\\
+			z^{s-1} = 0 \implies z=0\\
+			\cos(\pi z^s) = 0 \implies \pi z^s = \frac{\pi}{2} \implies z = 2^{-1/s}
+		\end{cases}
+	\end{align*}
+	And modal density is \[\psi(2^{-1/s}; s,k) = \frac{1}{A(s,k)} \sin^k(\pi z^s)\bigg|_{z=2^{-1/s}} = \frac{1}{A(s,k)}\]
+\end{proof}
 
 
 \subsection{Preliminary mathematical properties} \label{subsec:app-prelim_math}
@@ -60,7 +61,7 @@ The characterization of the shape of such a (smooth) radial curve that defines t
 \end{align*}
 \end{rmk}
 
-\begin{comment}
+
     \begin{proofof}{\autoref{thm:transform}}
 Consider the transformation $Y = \sin^2(X)$ for $X \in [0, \pi/2]$. The Jacobian of the transformation is:
 \begin{equation}
@@ -78,7 +79,7 @@ f_U(u) \propto f_Z((u/\pi)^{1/S}) \cdot u^{(1-S)/S} \propto (u^{(S-1)/S} \sin^K 
 \end{equation}
 on $u \in [0, \pi]$. By the Beta-transformation theorem for $\sin^K u$, the variable $U$ is generated using $Y \sim \text{Beta}(\frac{K+1}{2}, \frac{1}{2})$. Reversing the power transformation $Z = (U/\pi)^{1/S}$ completes the proof.
 \end{proofof}
-\end{comment}
+
 
 
 \begin{proofof}{\autoref{thm:jtdens}}

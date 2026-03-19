@@ -1,3 +1,6 @@
+\RequirePackage{amsmath, amsfonts, amssymb, amsthm}
+\RequirePackage{xargs}
+
 \renewcommand {\Pr} {\mathcal P}
 
 \newcommand {\E} {\mathbb E}
@@ -21,7 +24,7 @@
 \newcommand{\Beta}{\mathrm B}
 \newcommand{\Ber}{\mathrm{Ber}}
 
-\newcommand{\Sinu}{\mathrm{Sinu}}
+\DeclareMathOperator*{\Sinu}{Sinu}
 \newcommand{\sindist}{\emph{Sinusoidal distribution}}
 
 \newcommandx{\Fh}[2][1=p, 2=q]{\mathrm F^{#1}_{#2}} % generalized hypergeometric function
@@ -44,5 +47,11 @@
 \newcommand{\bterm}[1]{\left[ #1 \right]}
 \newcommand{\pterm}[1]{\left( #1 \right)}
 \newcommand{\Unif}{\text{Unif}}
+\newcommand{\Bin}{\text{Bin}}
+\newcommand{\Poi}{\text{Poi}}
+\newcommand{\Geo}{\text{Geo}}
+\newcommand{\NB}{\text{NB}}
+\newcommand{\Hyp}{\text{Hyp}}
+
 
 \newcommand{\iidsim}{\mathrel{\overset{\text{i.i.d.}}{\sim}}}

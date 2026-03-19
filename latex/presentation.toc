@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{The Distribution}{6}{0}{2}
+\beamer@sectionintoc {3}{Mathematical Properties}{12}{0}{3}
+\beamer@sectionintoc {4}{GHGF}{16}{0}{4}
+\beamer@sectionintoc {5}{Fitting}{22}{0}{5}
+\beamer@sectionintoc {6}{Future Objectives}{33}{0}{6}

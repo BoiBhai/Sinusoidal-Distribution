@@ -1,0 +1,79 @@
+\section{Preliminary Mathematical Properties}
+Proofs to theorems mentioned are provided in the Appendix \autoref{subsec:app-prelim_math}.
+
+	\subsection*{Programmatic Notation}
+	We follow these conventions of nomenclature, in both the report and the code as far as possible, to quickly understand the domain of variables, and in some ways also their interpretation.
+	\begin{enumerate}
+		\item $x \in [a, a+d]$
+		\item $z :\equiv\frac{x-a}{d} \in [0,1]$
+		\item $u :\equiv z^s\in [0,1]$ also.
+		\item $\theta :\equiv \pi u \equiv \pi z^s \in [0,\pi]$
+		\item $\omega := \theta - \frac{\pi}{2} \equiv \pi z^s - \frac{\pi}{2} \in [-\frac{\pi}{2}, \frac{\pi}{2}]$
+		\item $r = \pm 1$
+	\end{enumerate}
+
+
+\subsection{Physical Interpretation}
+Similar to \cite{gilbert1893moon} -- which imagines intensity (interpreted as probability density) of crater activity on a circular planet as proportional to Gilbert's Sine density $\sin\theta$ -- the Standard \sindist{} $\Sinu(s,k)$ can also be physically interpreted as the intensity of crater activity on a (possibly non-circular) planetary surface given by the radial curve:
+\begin{equation}
+	r(z) = r_0 \exp\left(\int_0^{\pi z^s} \tan(t - \sin^{-1}\sin^k t) \d t\right)
+\end{equation}
+where the curve $r(z)$ is parametrized by $z \in [0,1]$ such that $\theta=\pi z^s$ is the angle the location $r(z)$ subtends at the origin, and $r_0$ is the initial radius at $z=0$. Details are furnished in \autoref{rmk:planet}.
+
+
+	\subsection{Transformation}
+	\begin{thm}[Expression as a morphed arcsin Beta distribution] \label{thm:transform}
+		$Y \sim \Beta(\frac{k+1}{2}, \frac{1}{2})$ and $R \sim \Ber (\frac 1 2)$, then
+		\[Z = \left[ R \sin^{-1} \sqrt Y + (1-R) (\pi - \sin^{-1} \sqrt Y) \right]^\frac{1}{s}\]
+		follows a $\Sinu(s,k)$ distribution.
+	\end{thm}
+
+
+
+\begin{thm}[Joint density expression]\label{thm:jtdens}
+	For $X_1\dots X_n \iidsim \Sinu(a,d,s,k)$, their joint density can be expressed as:
+	\begin{equation}
+		f(x_1\dots x_n) = \frac{1}{A^n(s,k) 2^{nk} d^n } \left( \sum_{r_1=\pm1}\cdots \sum_{r_n = \pm 1} \left[\prod_{j=1}^n r_j\right] \cdot \exp\left[\sum_{j=0}^n \i \pi r_j \left(\frac{x_j -a}{d}\right)^s\right]  \right)^k
+	\end{equation}
+\end{thm}
+
+\subsection{Concentration Inequalities}
+\begin{thm}[\sindist{} is sub-Gaussian]
+	$X \sim \Sinu (a,d,s,k)$ is sub-Gaussian with parameter $\frac{d^2}{4}$.
+\end{thm}
+\begin{proof}
+	$\because a \le X \le a+d \quad\text{a.s.}$, $\therefore \E \left[ \e^{\lambda (X - \E X)} \right] \le \exp \left( -\frac{\lambda d^2}{8} \right)$ by Hoeffding's lemma.
+	
+	Note that because it is sub-Gaussian, it is also sub-Exponential.
+\end{proof}
+
+
+\subsection{Normalizing constant for the symmetric case}
+\begin{thm}[Normalizing constant, symmetric case]\label{thm:norm_sym}
+	\begin{align}
+		A(1,k) \equiv \int_0^1 \sin^k(\pi t) \d t &= \frac{2^k}{\pi} \frac{\Gamma^2\left( \frac{k+1}{2} \right)}{\Gamma\left( k+1\right)} \label{eq:area1}\\
+		&= \frac{1}{\sqrt \pi} \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2} + 1\right)} \label{eq:area2}
+	\end{align}
+\end{thm}
+
+
+\subsection{Incomplete integral of the kernel for the Symmetric case}
+\begin{thm}[Incomplete integral of the kernel for the symmetric case] \label{thm:cdf_sym}
+	When $k\in \ZZ^+$, $s=1$, we have --
+	\begin{align}
+		\int_0^z \sin^k\pi t \, dt &=
+		\frac{1}{2^{2n}} {2n \choose n} z + \frac{(-1)^n}{\pi 2^{2n-1}}\sum_{k=0}^{n-1} (-1)^k {2n \choose k} \frac{\sin 2(n-k)\pi z}{2(n-k)} && [\text{$k$ even}]\\
+		&= \frac{1}{\pi 2^{2n}}(-1)^n \sum_{k=0}^n (-1)^k {2n+1 \choose k} \frac{1 - \cos (2n+1-2k)\pi z}{2n+1-2k}  &&  [\text{$k$ odd}]
+	\end{align}
+\end{thm}
+
+
+\subsection{Limiting to Normality}
+\begin{thm}\label{thm:normality}
+	For the symmetric about 0 \sindist{} $\Sinu\left(-\frac{d}{2}, d, 1, k\right)$, i.e. with $a = -\frac{d}{2}$ and $s=1$, setting $d \equiv d(k)= \pi \sqrt k$ and letting $k \uparrow \infty$, we have:
+	\[ \psi_k(x) \to \phi(x)\]
+	where $\phi(x)$ is the PDF of a Standard Normal distribution.
+\end{thm}
+
+
+

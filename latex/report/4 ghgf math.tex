@@ -1,0 +1,57 @@
+\section{Properties involving the Generalized Hypergeometric Function}
+For this section, we define Generalized Hypergeometric Function (GHGF) $\Fhyp_q^p$, parametrized by $a_1, \dots, a_p$ and $b_1, \dots, b_p$, calculated at the argument $x$ as: 
+\[\Fhyp_q^p \left(\begin{matrix} a_1 & \cdots & a_p \\ b_1 & \cdots & b_q\ \end{matrix} ; x \right) := \sum_{j=0}^\infty \frac{\poch{a_1}[j] \cdots \poch{a_p}[j]}{\poch{b_1}[j] \cdots \poch{b_q}[j]} \frac{x^j}{j!}\]
+where $\poch x := x(x+1)\cdots(x+n-1)$ is the rising factorial / Pochhammer function.
+
+Also define from hereon ${r \choose k} = \frac{\poch{r}[k]}{k!}$ as the generalized binomial coefficient.
+
+Some additional notes are provided in \autoref{rmk:ghgf}. Proofs to the theorems mentioned are provided in \autoref{subsec:app-prop_ghgf}.
+
+\subsection{Kernel}
+\begin{thm}[Kernel expression via Binomial expansion of Euler form]\label{thm:kernelbin}
+	\begin{equation}\label{eq:kernelbin}
+		\varsigma(z; s,k) \equiv \sin^k (\pi z^s) =  \frac{1}{(2\i)^k} \sum_{j=0}^\infty (-1)^j {k \choose j}  \e^{\i (k-2j) \pi z^s}
+	\end{equation}
+\end{thm}
+
+\begin{thm}[Kernel expression via Generalized Hypergeometric Function]\label{thm:kernelhgf}
+	\begin{align}
+		\varsigma(z; s,k) \equiv \sin^k (\pi z^s) &=  (\pi z^s)^k \left( \Fhyp^0_1 \left[ \begin{matrix} \cdot \\ \frac{3}{2} \end{matrix}; -\frac{\pi^2 u^2}{4}\right] \right)^k \label{eq:kernelghfreal}\\
+		&= \Fhyp^1_0 \left[ \begin{matrix}k\\ \cdot\end{matrix};  -\exp(-2 \i \pi z^s) \right] \label{eq:kernelhgfcomplex}
+	\end{align}
+\end{thm}
+
+\subsection{CF and MGF}
+\begin{thm}[Characteristic Function and MGF of the Standard \sindist] \label{thm:cfmgf}
+	For $Z \sim \Sinu(s,k)$, its CF is given as --
+	\begin{equation}\label{eq:cf}
+		\varphi_Z(t) = \frac{1}{A(s,k) (2\i)^k} \sum_{j=0}^{\infty} (-1)^j \binom{k}{j} \sum_{m=0}^{\infty} \frac{(\i t)^m}{(m+1)!} \Fhyp^1_1\left[ \begin{matrix}\frac{m+1}{s}\\ \frac{m+1}{s} + 1 \end{matrix};\, \i\pi(k-2j) \right]
+	\end{equation}
+	Additionally, the MGF is given as --
+	\begin{equation}
+		\upphi_Z(t) \equiv \varphi_Z(-it) = \frac{1}{A(s,k) (2\i)^k} \sum_{j=0}^{\infty} (-1)^j \binom{k}{j} \sum_{m=0}^{\infty} \frac{t^m}{(m+1)!} \Fhyp^1_1\left[ \begin{matrix}\frac{m+1}{s}\\ \frac{m+1}{s} + 1 \end{matrix};\, \i\pi(k-2j) \right]
+	\end{equation}
+\end{thm}
+
+\subsection{Moments}
+\begin{thm}[Moments of Standard \sindist]\label{thm:moments}
+	For $Z \sim \Sinu(s,k)$, $\upmu_r(s,k) := \E [Z^r]$ is given by
+	\begin{align}
+		\upmu_r(s,k) &= \frac{1}{A(s,k) (2\i)^k (r+1)} \sum_{j=0}^{\infty} (-1)^j \binom{k}{j} \Fhyp^1_1 \left[ \begin{matrix}\frac{r+1}{s}\\ \frac{r+1}{s} + 1\end{matrix}; \, \i\pi(k-2j) \right]\\
+		&= \frac{1}{A(s,k) (2\i)^k} \sum_{j=0}^\infty {k \choose j} (-1)^j \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi]^n}{n! (ns+r+1)}
+	\end{align}
+\end{thm}
+
+\subsection{CDF}
+\begin{thm}[CDF of the Standard \sindist]\label{thm:cdf}
+	\begin{equation}
+		\Psi(z; s,k) = \frac{1}{A(s,k) (2\i)^k} \sum_{j=0}^\infty (-1)^j {k \choose j} \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi]^n}{n! (ns+1)} z^{ns+1}
+	\end{equation}
+\end{thm}
+
+\subsection{Normalizing constant}
+\begin{thm}[Normalizing constant for the Standard \sindist{}]
+	\[A(s,k) = \frac{1}{(2\i)^k} \sum_{j=0}^\infty (-1)^j {k \choose j} \sum_{n=0}^{\infty} \frac{[\i (k-2j) \pi]^n}{n! (ns+1)} \]
+\end{thm}
+
+

@@ -1,0 +1,357 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{benchiha2023newsineg}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=7a7299ae1b4a8543e4e81ebb43b000dd}{%
+           family={Benchiha},
+           familyi={B\bibinitperiod},
+           given={SidAhmed},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e74a7a7acd3c398ab07fa1ed6bf91798}{%
+           family={Sapkota},
+           familyi={S\bibinitperiod},
+           given={Laxmi\bibnamedelima Prasad},
+           giveni={L\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=66aac0d06fd923d35d8fef6772f41d5b}{%
+           family={Al\bibnamedelima Mutairi},
+           familyi={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Aned},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3c2a6a0658f1ad90e7d4a83eef9c3841}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Vijay},
+           giveni={V\bibinitperiod}}}%
+        {{hash=eff82f224ca654a98286c6d28887982b}{%
+           family={Khashab},
+           familyi={K\bibinitperiod},
+           given={Rana\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=325d76b27286b06e328f6d5c85711b2f}{%
+           family={Gemeay},
+           familyi={G\bibinitperiod},
+           given={Ahmed\bibnamedelima M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=761834c5a342a25fa2cb57ec2c402d92}{%
+           family={Elgarhy},
+           familyi={E\bibinitperiod},
+           given={Mohammed},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7b9ae73ed8887ec7953909a8ac0f6c7b}{%
+           family={Nassr},
+           familyi={N\bibinitperiod},
+           given={Said\bibnamedelima G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{815392205e0adc58855bb462f2a53d60}
+      \strng{fullhash}{2e7e7b22bb7768196121c79bd2687ecf}
+      \strng{fullhashraw}{2e7e7b22bb7768196121c79bd2687ecf}
+      \strng{bibnamehash}{815392205e0adc58855bb462f2a53d60}
+      \strng{authorbibnamehash}{815392205e0adc58855bb462f2a53d60}
+      \strng{authornamehash}{815392205e0adc58855bb462f2a53d60}
+      \strng{authorfullhash}{2e7e7b22bb7768196121c79bd2687ecf}
+      \strng{authorfullhashraw}{2e7e7b22bb7768196121c79bd2687ecf}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this article, we extensively study a family of distributions using the trigonometric function. We add an extra parameter to the sine transformation family and name it the alpha-sine-G family of distributions. Some important functional forms and properties of the family are provided in a general form. A specific sub-model alpha-sine Weibull of this family is also introduced using the Weibull distribution as a parent distribution and studied deeply. The statistical properties of this new distribution are investigated and intended parameters are estimated using the maximum likelihood, maximum product of spacings, least square, weighted least square, and minimum distance methods. For further justification of these estimates, a simulation experiment is carried out. Two real data sets are analyzed to show the suggested model’s application. The suggested model performed well compares to some existing models considered in the study.}
+      \field{issn}{2297-8747}
+      \field{journaltitle}{Mathematical and Computational Applications}
+      \field{number}{4}
+      \field{title}{A New Sine Family of Generalized Distributions: Statistical Inference with Applications}
+      \field{volume}{28}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.3390/mca28040083
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2297-8747/28/4/83
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2297-8747/28/4/83
+      \endverb
+    \endentry
+    \entry{gilbert1893moon}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=bac1817a388f795d7b1156b8bdc6f85d}{%
+           family={Gilbert},
+           familyi={G\bibinitperiod},
+           given={G.K.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Philosophical Society of Washington}%
+      }
+      \strng{namehash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{fullhash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{fullhashraw}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{bibnamehash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{authorbibnamehash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{authornamehash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{authorfullhash}{bac1817a388f795d7b1156b8bdc6f85d}
+      \strng{authorfullhashraw}{bac1817a388f795d7b1156b8bdc6f85d}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Bulletin. Philosophical Society of Washington}
+      \field{title}{The Moon's Face: A Study of the Origin of Its Features}
+      \field{year}{1893}
+      \verb{urlraw}
+      \verb https://books.google.co.in/books?id=NIkEAAAAYAAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.co.in/books?id=NIkEAAAAYAAJ
+      \endverb
+    \endentry
+    \entry{jerry2026frechet}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=f4cb2555eaaa0268edc6474095703f0c}{%
+           family={Jerry},
+           familyi={J\bibinitperiod},
+           given={Joel},
+           giveni={J\bibinitperiod}}}%
+        {{hash=13fdd3f0e66ec91c86dbafccb3f21a31}{%
+           family={Afuecheta},
+           familyi={A\bibinitperiod},
+           given={Emmanuel},
+           giveni={E\bibinitperiod}}}%
+        {{hash=5676dcd2f0e0e06fd6a6fd0d088248e1}{%
+           family={Okorie},
+           familyi={O\bibinitperiod},
+           given={Idika},
+           giveni={I\bibinitperiod}}}%
+        {{hash=9a16c687d694ef8aeffbdef14b29ec96}{%
+           family={Omar},
+           familyi={O\bibinitperiod},
+           given={\{M.\bibnamedelimi Hafidz\}},
+           giveni={\\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media B.V.}%
+      }
+      \strng{namehash}{28fa5981348dd2943112abc94065c012}
+      \strng{fullhash}{55bcf1c12e9a563db63e82c8787635eb}
+      \strng{fullhashraw}{55bcf1c12e9a563db63e82c8787635eb}
+      \strng{bibnamehash}{28fa5981348dd2943112abc94065c012}
+      \strng{authorbibnamehash}{28fa5981348dd2943112abc94065c012}
+      \strng{authornamehash}{28fa5981348dd2943112abc94065c012}
+      \strng{authorfullhash}{55bcf1c12e9a563db63e82c8787635eb}
+      \strng{authorfullhashraw}{55bcf1c12e9a563db63e82c8787635eb}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Many real-world datasets exhibit skewness, heavy tails, and complex hazard-rate shapes that classical lifetime distributions and several existing generalized families fail to capture adequately. To address these limitations, this paper introduces the Sine–Fréchet-G family of continuous distributions, constructed by compounding the Sine-G generator with the Fréchet-G transformation. The proposed family provides enhanced flexibility for modeling asymmetric and heavy-tailed data while maintaining analytical tractability. Explicit expressions are derived for the cumulative distribution function, probability density function, survival and hazard rate functions, and quantile function. Series representations are obtained to facilitate the derivation of moments, the moment generating function, the characteristic function, and order statistics. Parameter estimation is carried out using the method of maximum likelihood, and the corresponding score equations are presented for a general baseline distribution. Several important sub-models, including the Sine–Fréchet Exponential, Weibull, Rayleigh, and Gompertz distributions, are developed and their validity is rigorously established. A Monte Carlo simulation study investigates the finite-sample behavior of the maximum likelihood estimators, demonstrating consistency and decreasing bias and mean squared error as sample size increases. The practical usefulness of the proposed family is illustrated through applications to three real-life datasets, where the Sine–Fréchet Exponential model outperforms competing models based on likelihood-based information criteria and goodness-of-fit measures. These results indicate that the Sine–Fréchet-G family constitutes a flexible and effective framework for modeling lifetime and reliability data with complex distributional features.}
+      \field{issn}{1538-7887}
+      \field{journaltitle}{Journal of Statistical Theory and Applications}
+      \field{month}{12}
+      \field{note}{Publisher Copyright: {©} The Author(s) 2026.}
+      \field{number}{1}
+      \field{title}{The Sine–Fréchet G Family of Continuous Distributions: Sub-models, Properties, Simulation and Applications}
+      \field{volume}{25}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.1007/s44199-025-00159-2
+      \endverb
+      \keyw{Fréchet-G family,Simulation and real-life datasets,Sine-G family,Statistical modeling,Statistical properties}
+    \endentry
+    \entry{kumar2015bladder}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=ca8f4119a21580b01c28dd3bee5363c8}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Dinesh},
+           giveni={D\bibinitperiod}}}%
+        {{hash=2a1f936363cf7e8198f5b39f2873f655}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Umesh},
+           giveni={U\bibinitperiod}}}%
+        {{hash=c407c30a6f3a9b575f4840c5a5759a16}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Sanjay\bibnamedelima Kumar},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Natural Sciences Publishing Corp}%
+      }
+      \strng{namehash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{fullhash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{fullhashraw}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{bibnamehash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{authorbibnamehash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{authornamehash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{authorfullhash}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \strng{authorfullhashraw}{ea3adc55ec1c2dd9280efc259bca0ab1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Statistics Applications \& Probability}
+      \field{number}{3}
+      \field{title}{A new distribution using sine function-its application to bladder cancer patients data}
+      \field{volume}{4}
+      \field{year}{2015}
+      \field{pages}{417}
+      \range{pages}{1}
+    \endentry
+    \entry{oramulu2024sinegen}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=7c4cccb1c3c1eb45e9e0b4f825da3362}{%
+           family={Oramulu},
+           familyi={O\bibinitperiod},
+           given={Dorathy\bibnamedelima O.},
+           giveni={D\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=699cd6b3d8b08a692ec482401583fcc0}{%
+           family={Alsadat},
+           familyi={A\bibinitperiod},
+           given={Najwan},
+           giveni={N\bibinitperiod}}}%
+        {{hash=0d8053ddb949da7d1fdaa35df7df05f5}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Anoop},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c544d48bcb1f4c56df1c0d4c6dc8ec44}{%
+           family={Bahloul},
+           familyi={B\bibinitperiod},
+           given={Mahmoud\bibnamedelima Mohamed},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=333a2d3196d0688abf0b371603b6251d}{%
+           family={Obulezi},
+           familyi={O\bibinitperiod},
+           given={Okechukwu\bibnamedelima J.},
+           giveni={O\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{b00763e0ac8664b6dd98e29cc6d54165}
+      \strng{fullhash}{4ffe95396d5c7c9b5753834664613f9d}
+      \strng{fullhashraw}{4ffe95396d5c7c9b5753834664613f9d}
+      \strng{bibnamehash}{b00763e0ac8664b6dd98e29cc6d54165}
+      \strng{authorbibnamehash}{b00763e0ac8664b6dd98e29cc6d54165}
+      \strng{authornamehash}{b00763e0ac8664b6dd98e29cc6d54165}
+      \strng{authorfullhash}{4ffe95396d5c7c9b5753834664613f9d}
+      \strng{authorfullhashraw}{4ffe95396d5c7c9b5753834664613f9d}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1110-0168}
+      \field{journaltitle}{Alexandria Engineering Journal}
+      \field{title}{Sine generalized family of distributions: Properties, estimation, simulations and applications}
+      \field{volume}{109}
+      \field{year}{2024}
+      \field{pages}{532\bibrangedash 552}
+      \range{pages}{21}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.aej.2024.09.001
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1110016824010184
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1110016824010184
+      \endverb
+    \endentry
+    \entry{osi2025ntsg}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=305cc649955ebe1d969d16b11520461a}{%
+           family={Osi},
+           familyi={O\bibinitperiod},
+           given={Abdulhameed},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7b1d68466340e30a54cbec266a14eb76}{%
+           family={Raghav},
+           familyi={R\bibinitperiod},
+           given={Yasphal},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=92b85cf83182add2f3f8d3c0f41d2704}{%
+           family={Sabo},
+           familyi={S\bibinitperiod},
+           given={Shamsuddeen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e4a3bf2ae8f283215d9f00bab8f48319}{%
+           family={Zakariyya\bibnamedelima Musa},
+           familyi={Z\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Ibrahim},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{754fa1e546d51b189a4e1a20309dbfbd}
+      \strng{fullhash}{fd2868f7d5cae38ae2e811ca01e60123}
+      \strng{fullhashraw}{fd2868f7d5cae38ae2e811ca01e60123}
+      \strng{bibnamehash}{754fa1e546d51b189a4e1a20309dbfbd}
+      \strng{authorbibnamehash}{754fa1e546d51b189a4e1a20309dbfbd}
+      \strng{authornamehash}{754fa1e546d51b189a4e1a20309dbfbd}
+      \strng{authorfullhash}{fd2868f7d5cae38ae2e811ca01e60123}
+      \strng{authorfullhashraw}{fd2868f7d5cae38ae2e811ca01e60123}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Brazilian Journal of Biometrics}
+      \field{month}{06}
+      \field{title}{The new transformed Sine G family of distribution with inferences and application}
+      \field{volume}{43}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.28951/bjb.v43i3.755
+      \endverb
+    \endentry
+    \entry{sakthivel2021transmuted}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=91a2f98db642004018381d0bc4a266f5}{%
+           family={Sakthivel},
+           familyi={S\bibinitperiod},
+           given={KM},
+           giveni={K\bibinitperiod}}}%
+        {{hash=7ecd5a73707597fd9783512591604e41}{%
+           family={Rajkumar},
+           familyi={R\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9013382310537df848a133caee04f81e}
+      \strng{fullhash}{9013382310537df848a133caee04f81e}
+      \strng{fullhashraw}{9013382310537df848a133caee04f81e}
+      \strng{bibnamehash}{9013382310537df848a133caee04f81e}
+      \strng{authorbibnamehash}{9013382310537df848a133caee04f81e}
+      \strng{authornamehash}{9013382310537df848a133caee04f81e}
+      \strng{authorfullhash}{9013382310537df848a133caee04f81e}
+      \strng{authorfullhashraw}{9013382310537df848a133caee04f81e}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Statistics and Applications,(Accepted: 10 August 2021)}
+      \field{title}{Transmuted sine-G family of distributions: theory and applications}
+      \field{year}{2021}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

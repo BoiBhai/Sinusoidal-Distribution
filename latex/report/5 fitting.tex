@@ -1,12 +1,5 @@
-% !TeX root = report.tex
-\newcommand{\Bin}{\text{Bin}}
-\newcommand{\Poi}{\text{Poi}}
-\newcommand{\Geo}{\text{Geo}}
-\newcommand{\NB}{\text{NB}}
-\newcommand{\Hyp}{\text{Hyp}}
-
-
-\section{Fitting and Estimation}
+%!TEX root = ../report.tex
+\section{Fitting}
 This section discusses fitting the \sindist{} over 2 kinds of statistical objects -- MSMs (moment summary measures), and PDFs, in an attempt to demonstrate its flexibility.
 
 It is to be noted that since the \sindist{} is a location-scale family, investigating its fitting flexibility over standardized/normalized statistical objects is good enough, since it can always adapt to location-scale transformed analogues of the aforesaid objects.
@@ -78,24 +71,16 @@ The results (minimized Hellinger distance with the choice of parameters) are pro
 
 The technical and theoretical underpinnings behind poor or failed fits will be the matter of future investigation.
 
-\begin{comment}
-\subsection{Quantile-Density Based Metrics}
-Following \cite{staudte2017dqf}, we construct the notion of Divergences based on the density-quantile function $dq(p) = f(F^{-1}(p)) \quad \forall p \in [0,1]$. The advantages of calculating divergence metrics on this transformed domain is that divergences become location-scale invariant and invariant to ``flat'' regions in the CDF.
+\subsection{CDF on CDF}
+
+\subsection{CDF on ECDF}
+
+\subsection{QF on QF}
+Quantile function on Quantile Function
+
+\subsection{QF on EQF}
+
+\subsection{DQF on DQF}
 
 
-\section{Divergence Density/Potential}
-For some target density $g$, if $D_g(f) = \int_{x \in \mathcal X} L(f(x),g(x)) \d x$ denotes the divergence of candidate density $f$ from target $g$, then define:
-\[V(x,y) = L(y, g(x))\]
-as the divergence density/potential associated with $g$ and induced by $L$. It gives a glimpse at the topography of penalization of $D(\cdot, \cdot)$ with respect to $g$. This is a useful metric if we want to compare how different tuning parameter $\alpha$'s affect the DPD.
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.7\linewidth]{fig/3-divpot.png}
-    \caption{Divergence Potential associated with $\Sinu(1,1)$ and induced by the Hellinger distance}
-    \label{fig:divpot}
-\end{figure}
-The process of fitting a candidate distribution over a given target then becomes merely an act of minimizing the line integral of potential function along the density line whilst ensuring that the area under the density line is 1.
 
-We can conclude that the \sindist{} is indeed more flexible if for different target densities, which may even come from data, it can minimize the divergence better than conventional distributions. At the same time, excess efficiency implies lack of robustness in the presence of contamination. In such cases, we justify the utility of the \sindist{} by saying that it fits to data more flexibly than other distributions, and transparently displays the nature of the underlying divergence metric without interference from the rigidity of its shape.
-
-An apparent benefit of the Divergence Potential over the standard choice of Influence Function in Robust Statistics literature is that it provides more information about the divergence functional than possible through incorporation of a degenerate contamination and subsequent analysis of the limit for an infinitesimal perturbation of that contamination.
-\end{comment}
