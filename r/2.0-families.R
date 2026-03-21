@@ -41,7 +41,7 @@ dqf = function(p, pars) dsinustd(qsinustd(p, pars[3], pars[4]), pars[3], pars[4]
 dqf.area = function(pars) integrate(function(x) dqf(x, pars), lower=0, upper=1)$value
 msm = function(pars) sinu.msm(pars[1], pars[2], pars[3], pars[4])
 support = function(pars) c(pars[1], pars[1]+pars[2])
-rangepars = list(init=c(0,0.1,0.1,0.1),
+rangepars = list(init=c(0,1,1,1),
                  lower=c(-10^3, 0.1^2, 0.1^2, 0.1^2),
                  upper=c(10^3, 2*10^3, 10^2, 10^2))
 family_sinu = list(pdf=pdf, cdf=cdf, dqf=dqf, dqf.area=dqf.area, msm=msm, support=support, rangepars=rangepars)

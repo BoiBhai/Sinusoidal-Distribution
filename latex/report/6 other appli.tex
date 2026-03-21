@@ -25,3 +25,20 @@ We want to assess if the additional flexibility of its skewness and kurtosis fig
 
 \subsection{Flexible Activation Function for NNs}
 We have already seen in \autoref{tab:fitpdf} that the \sindist{} can take the shape of a Logistic (0,1) distribution with great accuracy. Given the closeness of its CDF to the sigmoid activation function, and the additional ability to take on other shapes as well, we aim to construct a neural network endowed with a flexible skewness-kurtosis activation function. This learnable-parameter NN will require deriving custom back-propagation equations for parameter estimation. We will also assess the additional cost of training such a neural network and the benefits associated with the same.
+
+Input: $a^0_{i_0} \equiv x_i$ for $i \in 1(1)m$\\
+Output: $a^{n+1}_{i_{n+1}} \equiv \hat y_i$ for $j \in 1(1)n$\\
+Single-layer network. Middle layer: $z_i = \sum_j w_{ij} x_j + b_i$\\
+Activation: $\sigma(\cdot)$, can be anything.
+
+The neural network is given by:
+$$a^{l+1}_{i_{l+1}} = \sigma\left[\sum_{i_l} w_{i_l,i_{l+1}} a^l_{i_l}\right] \quad \begin{cases}
+	\forall i_{l+1} \in 1(1)n_{l+1}\\
+	\forall l = 0(1)n
+\end{cases}$$
+and $a^l_0, a^{l+1}_0 = 1$ is the bias term at every layer.
+
+Assume Sinunet. Backpropagation equations:
+\begin{align}
+	f
+\end{align}

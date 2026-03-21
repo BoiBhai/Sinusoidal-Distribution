@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.19)  18 MAR 2026 17:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.19)  20 MAR 2026 22:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1003,7 +1003,7 @@ Package amsmath Warning: Foreign command \over;
 
 
 [10]
-<fig/2-skewkurtcover.pdf, id=411, 572.1375pt x 427.5975pt>
+<fig/2-skewkurtcover.pdf, id=412, 572.1375pt x 427.5975pt>
 File: fig/2-skewkurtcover.pdf Graphic file (type pdf)
 <use fig/2-skewkurtcover.pdf>
 Package pdftex.def Info: fig/2-skewkurtcover.pdf  used on input line 30.
@@ -1017,51 +1017,85 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [11 <./fig/2-skewkurtcover.pdf>]) (./report/6 more fitting.tex
 
 [12]
-<fig/3-divpot.png, id=431, 570.63188pt x 410.2828pt>
+<fig/3-divpot.png, id=435, 570.63188pt x 410.2828pt>
 File: fig/3-divpot.png Graphic file (type png)
 <use fig/3-divpot.png>
 Package pdftex.def Info: fig/3-divpot.png  used on input line 16.
 (pdftex.def)             Requested size: 328.82706pt x 236.42413pt.
 
 
-[13 <./fig/3-divpot.png>]) (./report/6 other appli.tex
+[13 <./fig/3-divpot.png>]
+<fig/divpot contamin 0.01.pdf, id=445, 578.16pt x 433.62pt>
+File: fig/divpot contamin 0.01.pdf Graphic file (type pdf)
+<use fig/divpot contamin 0.01.pdf>
+Package pdftex.def Info: fig/divpot contamin 0.01.pdf  used on input line 40.
+(pdftex.def)             Requested size: 230.18251pt x 172.63109pt.
+<fig/divpot contamin 0.1.pdf, id=446, 578.16pt x 433.62pt>
+File: fig/divpot contamin 0.1.pdf Graphic file (type pdf)
+<use fig/divpot contamin 0.1.pdf>
+Package pdftex.def Info: fig/divpot contamin 0.1.pdf  used on input line 44.
+(pdftex.def)             Requested size: 230.18251pt x 172.63109pt.
+<fig/divpot contamin 0.5.pdf, id=447, 578.16pt x 433.62pt>
+File: fig/divpot contamin 0.5.pdf Graphic file (type pdf)
+<use fig/divpot contamin 0.5.pdf>
+Package pdftex.def Info: fig/divpot contamin 0.5.pdf  used on input line 48.
+(pdftex.def)             Requested size: 230.18251pt x 172.63109pt.
+<fig/divpot contamin 1.pdf, id=448, 578.16pt x 433.62pt>
+File: fig/divpot contamin 1.pdf Graphic file (type pdf)
+<use fig/divpot contamin 1.pdf>
+Package pdftex.def Info: fig/divpot contamin 1.pdf  used on input line 52.
+(pdftex.def)             Requested size: 230.18251pt x 172.63109pt.
 
-[14]
+Underfull \hbox (badness 3108) in paragraph at lines 39--55
+[][] []
+ []
 
-[15])
 
-[16] (./report/appendix.tex
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[17]
 
-[18]
-<fig/2-planet.pdf, id=499, 770.88pt x 578.16pt>
+
+[14]) (./report/6 other appli.tex
+
+[15 <./fig/divpot contamin 0.01.pdf> <./fig/divpot contamin 0.1.pdf> <./fig/div
+pot contamin 0.5.pdf> <./fig/divpot contamin 1.pdf>]
+
+[16]
+
+[17])
+
+[18] (./report/appendix.tex
+
+[19]
+
+[20]
+<fig/2-planet.pdf, id=540, 770.88pt x 578.16pt>
 File: fig/2-planet.pdf Graphic file (type pdf)
 <use fig/2-planet.pdf>
 Package pdftex.def Info: fig/2-planet.pdf  used on input line 37.
 (pdftex.def)             Requested size: 328.82706pt x 246.619pt.
 
 
-[19 <./fig/2-planet.pdf>]
-
-[20]
-
-[21]
+[21 <./fig/2-planet.pdf>]
 
 [22]
+
+[23]
+
+[24]
 Overfull \hbox (5.87315pt too wide) detected at line 175
 []
  []
 
 
 
-[23]
+[25]
 
-[24]
+[26]
 
-[25])
+[27])
 
-[26] (./report.aux)
+[28] (./report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1073,10 +1107,10 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22472 strings out of 473190
- 391248 string characters out of 5719979
- 1249011 words of memory out of 5000000
- 45249 multiletter control sequences out of 15000+600000
+ 22517 strings out of 473190
+ 392598 string characters out of 5719979
+ 1249070 words of memory out of 5000000
+ 45286 multiletter control sequences out of 15000+600000
  573946 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,17n,95p,1183b,1673s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1103,10 +1137,10 @@ xlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/202
 5/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/2025/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report.pdf (26 pages, 1525086 bytes).
+Output written on report.pdf (28 pages, 2797614 bytes).
 PDF statistics:
- 759 PDF objects out of 1000 (max. 8388607)
- 602 compressed objects within 7 object streams
- 161 named destinations out of 1000 (max. 500000)
- 398 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 800 PDF objects out of 1000 (max. 8388607)
+ 633 compressed objects within 7 object streams
+ 169 named destinations out of 1000 (max. 500000)
+ 418 words of extra memory for PDF output out of 10000 (max. 10000000)
 

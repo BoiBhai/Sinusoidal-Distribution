@@ -30,15 +30,34 @@ We can conclude that the \sindist{} is indeed more flexible if for different tar
 	\end{tabular}
 \end{table}
 
-\subsubsection{DPD and contamination}
 Almost all divergences are functions of $y-g$, i.e. dependent on the deviation.
 
-Higher $\alpha$: Lower rate of increase of penalization for deviating from true curve.\\
-Lower $\alpha$ allows rigid maximization over the main uncontaminated curve only. However, higher $\alpha$ provides broader scope to fit over
+\subsubsection{DPD and contamination}
+Higher $\alpha$ causes a lower rate of increase of penalization for deviating from true curve, thereby providing more feasibility of a fit that covers both density portions. Whereas a lower $\alpha$ allows rigid maximization over one of the 2 curves only, since passing through the middle high-penalization region in between incurs a lot of cost. See \autoref{fig:dpdpots}.
 
-However for the contaminated case, there is the additional complexity of the principal density being scaled down. So even if the distribution were to fit to the principal density portion, it would it to a dwarved version of it, thereby adjusting a best fit over its "cloud" of minimality. Thereby the candidate distribution is now betrayed to fit over a "non-density" principal component.
+   \begin{figure}[h]
+	\begin{subfigure}{0.49\linewidth}
+		\includegraphics[width=\linewidth]{fig/divpot contamin 0.01}
+		\caption{$\alpha=0.01$}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\includegraphics[width=\linewidth]{fig/divpot contamin 0.1}
+		\caption{$\alpha=0.1$}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\includegraphics[width=\linewidth]{fig/divpot contamin 0.5}
+		\caption{$\alpha = 0.5$}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\includegraphics[width=\linewidth]{fig/divpot contamin 1}
+		\caption{$\alpha = 1$}
+	\end{subfigure}
+	\caption{Shape plots of different \sindist s}\label{fig:dpdpots}
+\end{figure}
 
-Finally observe that for contaminated densities, it is not the ``attraction" of the second peak that deviates the candidate to fit contaminatedly, but it is the infeasibility in between that makes unimodal densities suboptimal fits, thereby seeking that the candidate choose either the principal or the contaminant density component.
+In the presence of contamination, there is the additional complexity of the principal density being scaled down. So even if the distribution were to fit to the principal density portion, it would it to a dwarved version of it, thereby adjusting a best fit over its ``cloud" of minimality. Thereby the candidate distribution is now betrayed to fit over a ``non-density" principal component.
+
+Finally observe that for contaminated densities, it is not the ``attraction'' of the second peak that deviates the candidate to fit contaminatedly, but it is the infeasibility in between that makes unimodal densities suboptimal fits, thereby seeking that the candidate choose either the principal or the contaminant density component.
 
 \subsubsection{Calculus of variations}
 We will work in the DQF domain so as to eliminate the question of location-scale dependence. We are looking at the problem:

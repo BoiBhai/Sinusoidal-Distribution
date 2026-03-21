@@ -1,5 +1,60 @@
 \documentclass[11pt]{article}
+
 \usepackage{boipackages}
+\usepackage[textwidth=6.5in, textheight=9.0in]{geometry}
+%\usepackage{pdflscape}
+\usepackage{setspace}
+\onehalfspacing % This is the standard command for 1.5 line spacing
+\usepackage{graphicx, wrapfig, subcaption}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{upgreek}
+\usepackage{mathtools}
+%\usepackage[skip=8pt]{parskip}
+\usepackage{xcolor, hyperref}
+\usepackage{xspace}
+\usepackage{xargs}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[bottom]{footmisc}
+
+\usepackage[
+backend=biber,
+style=ext-authoryear
+]{biblatex}
+\usepackage{tocbibind}
+\addbibresource{ref.bib}
+\usepackage{appendix}
+
+\usepackage{comment}
+
+\hypersetup{
+	colorlinks = true,
+	menucolor=black,
+	linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+	citecolor=blue,        % color of links to bibliography
+	urlcolor=red   
+}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newcommand{\thmautorefname}{Theorem}
+\newtheorem{clm}{Claim}[section]
+\newcommand{\clmautorefname}{Claim}
+\theoremstyle{remark}
+\newtheorem{rmk}{Remark}[section]
+\newcommand{\rmkautorefname}{Remark}
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}
+
+
+\NewDocumentEnvironment{proofof}{m}{
+	\par\noindent
+	\textbf{Proof of #1.}\enspace
+}{
+	\qed\par\medskip
+}
+
 \usepackage{boimacros}
 
 

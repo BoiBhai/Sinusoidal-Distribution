@@ -71,6 +71,12 @@ The results (minimized Hellinger distance with the choice of parameters) are pro
 
 The technical and theoretical underpinnings behind poor or failed fits will be the matter of future investigation.
 
+Quantile based methods for bounded support densities: mode matching. WLoG, assume density is supported on $0,1$. Steps:\begin{enumerate}
+	\item Equate $2^{-1/s} = \text{given mode}$. Call the solution $s^*$.
+	\item Equate $A(s^*, k) = \text{modal density}$. Call the solution $k^*$.
+	\item Optimal density is $\Sinu(s^*, k^*)$. If this optimal density is a poor fit to the target, then either the target is not a Sinusoidal shape, or Sinusoidal distribution approximates is poorly within those bounds.
+\end{enumerate}
+
 \subsection{CDF on CDF}
 
 \subsection{CDF on ECDF}
