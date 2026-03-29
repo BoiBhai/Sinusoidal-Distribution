@@ -1,0 +1,22 @@
+\section{Numerical and Empirical Properties}
+
+\subsection{Convolutional approximation}
+Although the convolution of two iid Sinusoidal RVs is not Sinusoidally distributed, yet a candidate Sinusoidal distribution is often a good approximation of the same. Furthermore, such an approximation can be achieved by prefixing a location-scale readjustment criterion, just like any other family of distributions, i.e.:
+\begin{equation}\Sinu(a,d,s,k) * \Sinu(a,d,s,k) \approx \Sinu(2a, 2d, s^*, k^*)\end{equation}\label{eq:locscaleReadj}
+for some $s^*$ and $k^*$.
+
+The following empirical study is conducted in this regard. The sum of 2 iid standard $\Sinu(s,k)$ RVs (i.e. convolutions of their 2 same densities) are considered over a grid of choices of $s, k \in (0,10]$. Every convolution is attempted to be approximated by some candidate $\Sinu(0,2, s^*, k^*)$ by minimizing the Hellinger distance. The results are plotted in the graph below. A poor fit (larger Hellinger distance) is presented as redder on the plot, whereas a good fit (smaller Hellinger distance) appears greener. Candidate $s^*, k^*$ are omitted from display. The results are displayed in \autoref{fig:convolfit1}
+
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{example-image}
+	\caption{Text}
+	\label{fig:convolfit1}
+\end{figure}
+
+A second study assesses the quality of fits when the location-scale readjustment criterion (\autoref{eq:locscaleReadj}) is lifted. The results are in \autoref{fig:convolfit2}.
+
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{example-image}
+	\caption{Text}
+	\label{fig:convolfit2}
+\end{figure}

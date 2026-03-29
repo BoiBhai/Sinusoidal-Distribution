@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.19)  20 MAR 2026 22:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.19)  27 MAR 2026 04:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -22,7 +22,7 @@ File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
-) (./boipackages.sty
+)
 (c:/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
@@ -795,35 +795,35 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \CommentStream=\write4
 
 Excluding comment 'comment')
-Package hyperref Info: Option `colorlinks' set `true' on input line 34.
+Package hyperref Info: Option `colorlinks' set `true' on input line 37.
 \c@thm=\count445
 \c@clm=\count446
 \c@rmk=\count447
 \c@dfn=\count448
-) (./boimacros.sty)
+ (./boimacros.sty)
 \@quotelevel=\count449
 \@quotereset=\count450
  (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -884,7 +884,7 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 13.
+Package hyperref Info: Link coloring ON on input line 68.
 
 (./report.out) (./report.out)
 \@outlinefile=\write5
@@ -904,15 +904,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
  (./report.bbl)
-Package biblatex Info: Reference section=0 on input line 13.
-Package biblatex Info: Reference segment=0 on input line 13.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
+Package biblatex Info: Reference section=0 on input line 68.
+Package biblatex Info: Reference segment=0 on input line 68.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 71.
 
 
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
 
 
 (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -931,22 +931,22 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [2]) (./report/2 sinu.tex
 
 [3]
-<fig/2-pdf.pdf, id=275, 572.1375pt x 427.5975pt>
+<fig/2-pdf.pdf, id=287, 572.1375pt x 427.5975pt>
 File: fig/2-pdf.pdf Graphic file (type pdf)
 <use fig/2-pdf.pdf>
 Package pdftex.def Info: fig/2-pdf.pdf  used on input line 45.
 (pdftex.def)             Requested size: 230.18251pt x 172.03423pt.
-<fig/2-cdf.pdf, id=276, 572.1375pt x 427.5975pt>
+<fig/2-cdf.pdf, id=288, 572.1375pt x 427.5975pt>
 File: fig/2-cdf.pdf Graphic file (type pdf)
 <use fig/2-cdf.pdf>
 Package pdftex.def Info: fig/2-cdf.pdf  used on input line 49.
 (pdftex.def)             Requested size: 230.18251pt x 172.03423pt.
-<fig/2-hf.pdf, id=277, 572.1375pt x 427.5975pt>
+<fig/2-hf.pdf, id=289, 572.1375pt x 427.5975pt>
 File: fig/2-hf.pdf Graphic file (type pdf)
 <use fig/2-hf.pdf>
 Package pdftex.def Info: fig/2-hf.pdf  used on input line 53.
 (pdftex.def)             Requested size: 230.18251pt x 172.03423pt.
-<fig/2-dqf.pdf, id=278, 572.1375pt x 427.5975pt>
+<fig/2-dqf.pdf, id=290, 572.1375pt x 427.5975pt>
 File: fig/2-dqf.pdf Graphic file (type pdf)
 <use fig/2-dqf.pdf>
 Package pdftex.def Info: fig/2-dqf.pdf  used on input line 57.
@@ -961,12 +961,12 @@ Underfull \hbox (badness 3108) in paragraph at lines 44--60
 [4]
 
 [5 <./fig/2-pdf.pdf> <./fig/2-cdf.pdf> <./fig/2-hf.pdf> <./fig/2-dqf.pdf>]
-<fig/2-skewvss.pdf, id=321, 572.1375pt x 427.5975pt>
+<fig/2-skewvss.pdf, id=331, 572.1375pt x 427.5975pt>
 File: fig/2-skewvss.pdf Graphic file (type pdf)
 <use fig/2-skewvss.pdf>
 Package pdftex.def Info: fig/2-skewvss.pdf  used on input line 81.
 (pdftex.def)             Requested size: 225.48038pt x 168.51747pt.
-<fig/2-kurtvsk.pdf, id=322, 572.1375pt x 427.5975pt>
+<fig/2-kurtvsk.pdf, id=332, 572.1375pt x 427.5975pt>
 File: fig/2-kurtvsk.pdf Graphic file (type pdf)
 <use fig/2-kurtvsk.pdf>
 Package pdftex.def Info: fig/2-kurtvsk.pdf  used on input line 85.
@@ -986,7 +986,22 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 
 [8]
 
-[9]) (./report/5 fitting.tex
+[9]) (./report/4.1 numerical properties.tex
+<example-image.pdf, id=417, 321.2pt x 240.9pt>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+Package pdftex.def Info: example-image.pdf  used on input line 11.
+(pdftex.def)             Requested size: 469.75499pt x 352.3286pt.
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+Package pdftex.def Info: example-image.pdf  used on input line 19.
+(pdftex.def)             Requested size: 469.75499pt x 352.3286pt.
+
+
+[10]
+
+[11 <c:/texlive/2025/texmf-dist/tex/latex/mwe/example-image.pdf>])
+(./report/5 fitting.tex
 Overfull \hbox (27.68713pt too wide) in paragraph at lines 8--9
 \OT1/cmr/m/it/10.95 tion $[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a; d; s; k\
 OT1/cmr/m/n/10.95 )$ are not an-a-lyt-i-cally solv-able, as we de-tail be-low. 
@@ -1002,45 +1017,52 @@ Package amsmath Warning: Foreign command \over;
 
 
 
-[10]
-<fig/2-skewkurtcover.pdf, id=412, 572.1375pt x 427.5975pt>
+[12]
+<fig/2-skewkurtcover.pdf, id=450, 572.1375pt x 427.5975pt>
 File: fig/2-skewkurtcover.pdf Graphic file (type pdf)
 <use fig/2-skewkurtcover.pdf>
 Package pdftex.def Info: fig/2-skewkurtcover.pdf  used on input line 30.
 (pdftex.def)             Requested size: 375.80542pt x 280.86462pt.
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[11 <./fig/2-skewkurtcover.pdf>]) (./report/6 more fitting.tex
+[13]
 
-[12]
-<fig/3-divpot.png, id=435, 570.63188pt x 410.2828pt>
+[14 <./fig/2-skewkurtcover.pdf>]) (./report/6 more fitting.tex
+<fig/3-divpot.png, id=470, 570.63188pt x 410.2828pt>
 File: fig/3-divpot.png Graphic file (type png)
 <use fig/3-divpot.png>
 Package pdftex.def Info: fig/3-divpot.png  used on input line 16.
 (pdftex.def)             Requested size: 328.82706pt x 236.42413pt.
 
 
-[13 <./fig/3-divpot.png>]
-<fig/divpot contamin 0.01.pdf, id=445, 578.16pt x 433.62pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[15]
+<fig/divpot contamin 0.01.pdf, id=480, 578.16pt x 433.62pt>
 File: fig/divpot contamin 0.01.pdf Graphic file (type pdf)
 <use fig/divpot contamin 0.01.pdf>
 Package pdftex.def Info: fig/divpot contamin 0.01.pdf  used on input line 40.
 (pdftex.def)             Requested size: 230.18251pt x 172.63109pt.
-<fig/divpot contamin 0.1.pdf, id=446, 578.16pt x 433.62pt>
+<fig/divpot contamin 0.1.pdf, id=481, 578.16pt x 433.62pt>
 File: fig/divpot contamin 0.1.pdf Graphic file (type pdf)
 <use fig/divpot contamin 0.1.pdf>
 Package pdftex.def Info: fig/divpot contamin 0.1.pdf  used on input line 44.
 (pdftex.def)             Requested size: 230.18251pt x 172.63109pt.
-<fig/divpot contamin 0.5.pdf, id=447, 578.16pt x 433.62pt>
+<fig/divpot contamin 0.5.pdf, id=482, 578.16pt x 433.62pt>
 File: fig/divpot contamin 0.5.pdf Graphic file (type pdf)
 <use fig/divpot contamin 0.5.pdf>
 Package pdftex.def Info: fig/divpot contamin 0.5.pdf  used on input line 48.
 (pdftex.def)             Requested size: 230.18251pt x 172.63109pt.
-<fig/divpot contamin 1.pdf, id=448, 578.16pt x 433.62pt>
+<fig/divpot contamin 1.pdf, id=483, 578.16pt x 433.62pt>
 File: fig/divpot contamin 1.pdf Graphic file (type pdf)
 <use fig/divpot contamin 1.pdf>
 Package pdftex.def Info: fig/divpot contamin 1.pdf  used on input line 52.
@@ -1055,65 +1077,66 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[14]) (./report/6 other appli.tex
+[16 <./fig/3-divpot.png>]
 
-[15 <./fig/divpot contamin 0.01.pdf> <./fig/divpot contamin 0.1.pdf> <./fig/div
-pot contamin 0.5.pdf> <./fig/divpot contamin 1.pdf>]
+[17 <./fig/divpot contamin 0.01.pdf> <./fig/divpot contamin 0.1.pdf> <./fig/div
+pot contamin 0.5.pdf> <./fig/divpot contamin 1.pdf>])
+(./report/6 other appli.tex
 
-[16]
+[18]
 
-[17])
+[19])
 
-[18] (./report/appendix.tex
+[20] (./report/appendix.tex
 
-[19]
+[21]
 
-[20]
-<fig/2-planet.pdf, id=540, 770.88pt x 578.16pt>
+[22]
+<fig/2-planet.pdf, id=577, 770.88pt x 578.16pt>
 File: fig/2-planet.pdf Graphic file (type pdf)
 <use fig/2-planet.pdf>
 Package pdftex.def Info: fig/2-planet.pdf  used on input line 37.
 (pdftex.def)             Requested size: 328.82706pt x 246.619pt.
 
 
-[21 <./fig/2-planet.pdf>]
-
-[22]
-
-[23]
+[23 <./fig/2-planet.pdf>]
 
 [24]
+
+[25]
+
+[26]
 Overfull \hbox (5.87315pt too wide) detected at line 175
 []
  []
 
 
 
-[25]
+[27]
 
-[26]
+[28]
 
-[27])
+[29])
 
-[28] (./report.aux)
+[30] (./report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 96CE4F5280AD68C9A95F93FCDFDEBF05;7189.
+(rerunfilecheck)             Checksum: DC05C704DB902FDAAE933F23048A4625;7742.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22517 strings out of 473190
- 392598 string characters out of 5719979
- 1249070 words of memory out of 5000000
- 45286 multiletter control sequences out of 15000+600000
+ 22533 strings out of 473190
+ 392869 string characters out of 5719979
+ 1249114 words of memory out of 5000000
+ 45292 multiletter control sequences out of 15000+600000
  573946 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,17n,95p,1183b,1673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,17n,81p,1183b,1673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{github.com/BoiBhai/Sinusoidal-Distribution.git} has
  been referenced but does not exist, replaced by a fixed one
@@ -1135,12 +1158,13 @@ cm/cmsy8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
 pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/te
 xlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/202
 5/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb><c:/texlive/2025/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on report.pdf (28 pages, 2797614 bytes).
+f-dist/fonts/type1/public/lm/lmss17.pfb><c:/texlive/2025/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msam10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb>
+Output written on report.pdf (30 pages, 2819027 bytes).
 PDF statistics:
- 800 PDF objects out of 1000 (max. 8388607)
- 633 compressed objects within 7 object streams
- 169 named destinations out of 1000 (max. 500000)
- 418 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 839 PDF objects out of 1000 (max. 8388607)
+ 668 compressed objects within 7 object streams
+ 177 named destinations out of 1000 (max. 500000)
+ 447 words of extra memory for PDF output out of 10000 (max. 10000000)
 
