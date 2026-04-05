@@ -73,6 +73,7 @@ Some shape properties of the \sindist{} are discussed below:
     \end{enumerate}.
     The alternative parametrization $s' = \ln s$ calibrates the parameter choice $s=0$ to the symmetric family, and on either side of it keeps oppositely signed skewness families.
     \item The choice $a=-\frac d 2$, $s=1$ gives the special symmetric around 0 $\Sinu(-\frac d 2, d, 1, k)$ family, supported on the interval $[-\frac d 2, \frac d 2]$.
+    \item Denote the family of mean-0 \sindist s as $\Sinu_0(d,s,k)$. Note that $d$ alone dictates the support of the distribution. If $\mu = \E(X | X \sim \Sinu(s,k))$ of a Standard Sinusoidal distribution, then $\Sinu_0(d,s,k) \equiv \Sinu(-\mu d, d,s,k)$. This is an important construct for linear regression setups.
     \item $s$ (or any transformation of it) does not affect the shape of the distribution symmetrically around the point $s=1$; i.e. $\nexists s'{<1}: \Sinu(s', k) \overset{d}{=} 1-\Sinu(s,k) \quad \forall s{>}1$. It is for this reason that we introduced the notion of a flipped \sindist{}.\label{item:flippedsinureason}
     \item $k$ affects kurtosis non-monotonically. See \autoref{fig:skassoc}.
     \item $s, k$ jointly affect both the skewness and the kurtosis. See \autoref{fig:skassoc}.

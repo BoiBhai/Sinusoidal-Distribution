@@ -8,8 +8,9 @@
 \contentsline {subsection}{\numberline {3.3}Concentration Inequalities}{8}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Normalizing constant for the symmetric case}{8}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Incomplete integral of the kernel for the Symmetric case}{8}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Limiting to Normality}{8}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Density of Sum}{8}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.6}Limiting Gaussianity}{8}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Limiting Gamma}{8}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Other distributions}{8}{subsection.3.8}%
 \contentsline {section}{\numberline {4}Properties involving the Generalized Hypergeometric Function}{9}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Kernel}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}CF and MGF}{9}{subsection.4.2}%
@@ -18,20 +19,21 @@
 \contentsline {subsection}{\numberline {4.5}Normalizing constant}{10}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Numerical and Empirical Properties}{10}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Convolutional approximation}{10}{subsection.5.1}%
-\contentsline {section}{\numberline {6}Fitting}{12}{section.6}%
-\contentsline {subsection}{\numberline {6.1}MLE, Score equations}{12}{subsection.6.1}%
+\contentsline {section}{\numberline {6}Fitting}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}MLE, Score equations}{11}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}MSM on MSM}{13}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}PDF on PDF}{13}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}CDF on CDF}{15}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}CDF on ECDF}{15}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}QF on QF}{15}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}QF on EQF}{15}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}DQF on DQF}{15}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.3}PDF on PDF}{14}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Mode matching}{14}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}CDF on CDF}{15}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}CDF on ECDF}{15}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}QF on QF}{15}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}QF on EQF}{15}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}DQF on DQF}{15}{subsection.6.9}%
 \contentsline {section}{\numberline {7}On the theory of fitting}{15}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Quantile-Density Based Metrics}{15}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Divergence Density/Potential}{15}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}DPD and contamination}{16}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Calculus of variations}{17}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2}Calculus of variations}{16}{subsubsection.7.2.2}%
 \contentsline {section}{\numberline {8}Future Plan}{18}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Analytical replication}{18}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Analytical expressions}{18}{subsection.8.2}%
@@ -39,7 +41,7 @@
 \contentsline {subsection}{\numberline {8.4}Test statistic distribution modelling}{19}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Unconventional datasets}{19}{subsection.8.5}%
 \contentsline {subsection}{\numberline {8.6}Flexible Bayesian Prior}{19}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}Flexible Activation Function for NNs}{19}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.7}Flexible Activation Function for NNs}{20}{subsection.8.7}%
 \contentsline {section}{\numberline {A}Code}{22}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Choice of Optimizer}{22}{subsection.A.1}%
 \contentsline {section}{\numberline {B}Proofs and Remarks}{22}{appendix.B}%

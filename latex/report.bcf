@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bcf:controlfile version="3.11" bltxversion="3.20" xmlns:bcf="https://sourceforge.net/projects/biblatex">
+<bcf:controlfile version="3.11" bltxversion="3.21" xmlns:bcf="https://sourceforge.net/projects/biblatex">
   <!-- BIBER OPTIONS -->
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
@@ -514,6 +514,7 @@
     <bcf:option datatype="string">alphaothers</bcf:option>
     <bcf:option datatype="string">sortalphaothers</bcf:option>
     <bcf:option datatype="string">presort</bcf:option>
+    <bcf:option datatype="string">citepagerange</bcf:option>
     <bcf:option datatype="string">texencoding</bcf:option>
     <bcf:option datatype="string">bibencoding</bcf:option>
     <bcf:option datatype="string">sortingtemplatename</bcf:option>
@@ -560,6 +561,7 @@
     <bcf:option datatype="string">backrefstyle</bcf:option>
     <bcf:option datatype="string">arxiv</bcf:option>
     <bcf:option datatype="string">introcite</bcf:option>
+    <bcf:option datatype="string">mergedate</bcf:option>
     <bcf:option datatype="string">dashed</bcf:option>
     <bcf:option datatype="boolean">familyinits</bcf:option>
     <bcf:option datatype="boolean">giveninits</bcf:option>
@@ -650,7 +652,6 @@
     <bcf:option datatype="boolean">innameidem</bcf:option>
     <bcf:option datatype="boolean">articlein</bcf:option>
     <bcf:option datatype="boolean">maintitleaftertitle</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">minxrefs</bcf:option>
@@ -682,6 +683,7 @@
     <bcf:option datatype="string">uniquelist</bcf:option>
     <bcf:option datatype="string">uniquename</bcf:option>
     <bcf:option datatype="string">introcite</bcf:option>
+    <bcf:option datatype="string">mergedate</bcf:option>
     <bcf:option datatype="string">dashed</bcf:option>
     <bcf:option datatype="boolean">familyinits</bcf:option>
     <bcf:option datatype="boolean">giveninits</bcf:option>
@@ -740,7 +742,6 @@
     <bcf:option datatype="boolean">innameidem</bcf:option>
     <bcf:option datatype="boolean">articlein</bcf:option>
     <bcf:option datatype="boolean">maintitleaftertitle</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="xml">labelalphatemplate</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
@@ -780,6 +781,7 @@
     <bcf:option datatype="string">uniquelist</bcf:option>
     <bcf:option datatype="string">uniquename</bcf:option>
     <bcf:option datatype="string" backendout="1">introcite</bcf:option>
+    <bcf:option datatype="string" backendout="1">mergedate</bcf:option>
     <bcf:option datatype="string" backendout="1">dashed</bcf:option>
     <bcf:option datatype="boolean" backendout="1">familyinits</bcf:option>
     <bcf:option datatype="boolean" backendout="1">giveninits</bcf:option>
@@ -837,7 +839,6 @@
     <bcf:option datatype="boolean" backendout="1">innameidem</bcf:option>
     <bcf:option datatype="boolean" backendout="1">articlein</bcf:option>
     <bcf:option datatype="boolean" backendout="1">maintitleaftertitle</bcf:option>
-    <bcf:option datatype="boolean" backendout="1">mergedate</bcf:option>
     <bcf:option datatype="boolean" backendout="1">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer" backendin="maxcitenames,maxbibnames,maxsortnames">maxnames</bcf:option>
     <bcf:option datatype="integer" backendin="mincitenames,minbibnames,minsortnames">minnames</bcf:option>
