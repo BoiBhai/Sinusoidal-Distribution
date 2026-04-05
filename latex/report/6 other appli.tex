@@ -24,6 +24,7 @@ We wish to employ the flexibility of its shape in the analysis of unconventional
 \subsection{Flexible Bayesian Prior}
 We want to assess if the additional flexibility of its skewness and kurtosis figures improves the accuracy of Bayesian estimation, by employing it as a highly flexible Bayes prior. We will also assess the computational costs that come with the estimation of 2 additional parameters, especially when they rely on numerical computation, and whether this is an acceptable compromise.
 
+<<<<<<< Updated upstream
 We create an entire linear regression setup based solely on the \sindist{} given its great approximation capabilities, see Mathematical properties as well as empirical results.
 \begin{align*}
 	\vector Y &= \mat X^\intercal \vector \beta + \epsilon_i \\
@@ -34,6 +35,15 @@ We create an entire linear regression setup based solely on the \sindist{} given
 	k_Y &\sim \Sinu(a_k, d_k, s_k, k_k)
 \end{align*}
 There is no hope for conjugacy here. We attempt MCMC via Metropolis-Hastings thereby.
+=======
+We create an entire linear regression model with every distribution some \sindist{}.
+
+\begin{align*}
+	\epsilon_i &\sim \Sinu(a_y,d_y,s_y,k_y)\\
+	a &\sim \Sinu(a_a, d_a, s_a, k_a)\\
+	d
+\end{align*}
+>>>>>>> Stashed changes
 
 \subsection{Flexible Activation Function for NNs}
 We have already seen in \autoref{tab:fitpdf} that the \sindist{} can take the shape of a Logistic (0,1) distribution with great accuracy. Given the closeness of its CDF to the sigmoid activation function, and the additional ability to take on other shapes as well, we aim to construct a neural network endowed with a flexible skewness-kurtosis activation function. This learnable-parameter NN will require deriving custom back-propagation equations for parameter estimation. We will also assess the additional cost of training such a neural network and the benefits associated with the same.
