@@ -14,21 +14,12 @@ fitsinu.ecdf.curve = function (data, str='', flip=F) {
   legend('bottomright', legend=c(str, sinu.str), fill=c('green','red'))
 }
 
-par(mfrow=c(2,2))
-par(mar=c(2,2,0,0))
-
 ### Binomial
 fitsinu.ecdf.curve(rbinom(100, 342, 0.3), '100x Binom (342, 0.3)')
 
 ### Poisson 
 fitsinu.ecdf.curve(rpois(100, 2.6), '100x Poi (2.6)')
 
-### Cars
-data1 = read.csv('cars.csv')
-price1 = sample(data1$price, 100)
-fitsinu.ecdf.curve(price1, '100x cars$price')
-
-### Income
-data1 = read.csv('income.csv')
-fnlwgt1 = sample(data1$fnlwgt, 100)
-fitsinu.ecdf.curve(fnlwgt1, '100x income$fnlwgt')
+### Ozone
+ozone1 = na.omit(airquality$Ozone)
+fitsinu.ecdf.curve(ozone1, 'airquality$Ozone')
